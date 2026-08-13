@@ -179,6 +179,117 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeModal();
   });
 
+  /* ---------- 3b. PESQUISA ---------- */
+  // Índice de tudo que pode ser encontrado pela busca. "url" é sempre relativo
+  // à raiz do site — o prefixo certo (nada, ou "../") é calculado automaticamente
+  // a partir do src de script.js na própria página, então funciona em qualquer pasta.
+  const searchIndex = [
+    { title: "Sabedoria para crianças", category: "Apostilas", url: "apostilas/sabedoria-para-criancas.html" },
+    { title: "Estudando Poesia, Latim e Caligrafia com Salmos", category: "Apostilas", url: "apostilas/poesia-latim-caligrafia.html" },
+    { title: "Bandeiras e Bandeirantes", category: "Apostilas", url: "apostilas/bandeiras-e-bandeirantes.html" },
+    { title: "Todas as Apostilas", category: "Categoria", url: "apostilas/index.html" },
+    { title: "Planner 2025", category: "Planners", url: "planners/2025.html" },
+    { title: "Planner 2026", category: "Planners", url: "planners/2026.html" },
+    { title: "Planner 2027", category: "Planners", url: "planners/2027.html" },
+    { title: "Todos os Planners", category: "Categoria", url: "planners/index.html" },
+    { title: "Clube Maravilhamento", category: "Cursos", url: "cursos/clube-maravilhamento.html" },
+    { title: "Pais Educadores", category: "Cursos", url: "cursos/pais-educadores.html" },
+    { title: "Aprendendo Poesia com Fábulas", category: "Cursos", url: "cursos/aprendendo-poesia-com-fabulas.html" },
+    { title: "Todos os Cursos", category: "Categoria", url: "cursos/index.html" },
+    { title: "História do Brasil — 2 a 4 anos", category: "História do Brasil", url: "historia-do-brasil/2-a-4.html" },
+    { title: "História do Brasil — 5 a 7 anos", category: "História do Brasil", url: "historia-do-brasil/5-a-7.html" },
+    { title: "História do Brasil — 8 a 11 anos", category: "História do Brasil", url: "historia-do-brasil/8-a-11.html" },
+    { title: "Toda a História do Brasil para Pequenos", category: "Categoria", url: "historia-do-brasil/index.html" },
+    { title: "9 de Janeiro — Dia do Fico", category: "Best-seller", url: "index.html#best-sellers" },
+    { title: "Ouviram do Ipiranga", category: "Best-seller", url: "index.html#best-sellers" },
+    { title: "15 de Novembro — Golpe da República", category: "Best-seller", url: "index.html#best-sellers" },
+    { title: "Tiradentes", category: "Best-seller", url: "index.html#best-sellers" },
+    { title: "Sobre nós", category: "Página", url: "sobre.html" }
+  ];
+
+  function normalize(str) {
+    return str
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase();
+  }
+
+  // Descobre o prefixo relativo certo ("" na raiz, "../" dentro de uma pasta)
+  // reaproveitando o src do próprio script.js, que já está correto em cada página.
+  function getBasePrefix() {
+    const scriptEl = document.querySelector('script[src$="js/script.js"]');
+    if (!scriptEl) return "";
+    return scriptEl.getAttribute("src").replace(/js\/script\.js$/, "");
+  }
+
+  const searchToggle = document.getElementById("searchToggle");
+  const searchModal = document.getElementById("searchModal");
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  if (searchToggle && searchModal && searchInput && searchResults) {
+    const basePrefix = getBasePrefix();
+
+    function renderResults(query) {
+      const q = normalize(query.trim());
+
+      if (!q) {
+        searchResults.innerHTML = '<p class="search-empty">Digite para pesquisar apostilas, planners, cursos e mais.</p>';
+        return;
+      }
+
+      const matches = searchIndex.filter((item) => normalize(item.title).includes(q) || normalize(item.category).includes(q));
+
+      if (!matches.length) {
+        searchResults.innerHTML = '<p class="search-empty">Nada encontrado. Tente outra palavra.</p>';
+        return;
+      }
+
+      searchResults.innerHTML = "";
+      matches.forEach((item) => {
+        const a = document.createElement("a");
+        a.className = "search-result";
+        a.href = basePrefix + item.url;
+        a.innerHTML = `<span class="search-result-title">${item.title}</span><span class="search-result-category">${item.category}</span>`;
+        searchResults.appendChild(a);
+      });
+    }
+
+    function openSearch() {
+      searchModal.classList.add("is-open");
+      searchModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      renderResults("");
+      searchInput.value = "";
+      setTimeout(() => searchInput.focus(), 50);
+    }
+
+    function closeSearch() {
+      searchModal.classList.remove("is-open");
+      searchModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    searchToggle.addEventListener("click", openSearch);
+    searchInput.addEventListener("input", () => renderResults(searchInput.value));
+
+    searchModal.querySelectorAll("[data-close-search]").forEach((el) => {
+      el.addEventListener("click", closeSearch);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSearch();
+      if ((e.key === "/" || (e.key === "k" && (e.metaKey || e.ctrlKey))) && !searchModal.classList.contains("is-open")) {
+        const active = document.activeElement;
+        const isTyping = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA");
+        if (!isTyping) {
+          e.preventDefault();
+          openSearch();
+        }
+      }
+    });
+  }
+
   /* ---------- 4. LINK ATIVO NO MENU CONFORME SCROLL ---------- */
   // Só mexe em links que são âncoras da própria página (href começando com "#").
   // Links para outras páginas (ex: "apostilas.html") já vêm com a classe "is-active"
