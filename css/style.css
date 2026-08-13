@@ -355,6 +355,15 @@ ul {
   /* Deixa o navegador tratar rolagem vertical normalmente e reserva o gesto
      horizontal para o JS arrastar o carrossel, sem os dois brigarem no mobile */
   touch-action: pan-y;
+  /* Evita selecionar texto ou iniciar o "arrastar imagem" nativo do navegador
+     no meio de um drag do carrossel (o que cancelaria o gesto de arrastar) */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hero-track img {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .hero-slide {
@@ -1041,19 +1050,27 @@ ul {
   font-weight: 700;
 }
 
-.footer-info {
-  font-size: 0.82rem;
+.footer-contact {
+  font-size: 0.85rem;
+}
+
+.footer-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--header-text-muted);
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
-.footer-info p {
-  margin: 0 0 6px;
+.footer-email svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
-.footer-disclaimer {
-  font-style: italic;
-  font-size: 0.75rem;
-  color: var(--header-text-dim);
+.footer-email:hover {
+  color: var(--color-maroon);
 }
 
 .footer-social {

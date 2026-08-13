@@ -72,36 +72,47 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.addEventListener("click", () => { heroGoTo(i); heroRestartAutoplay(); });
     });
 
-    // Arrastar com o dedo no celular: a faixa acompanha o dedo e, ao soltar,
-    // avança/volta se o arraste passou de ~12% da largura, ou volta pro lugar.
-    let touchStartX = 0;
-    let touchCurrentX = 0;
+    // Arrastar com o dedo (ou mouse) para qualquer lado: a faixa acompanha o
+    // gesto e, ao soltar, avança/volta se o arraste passou de ~12% da largura,
+    // ou volta pro lugar. Usa Pointer Events + setPointerCapture em vez de
+    // touch puro: assim o navegador garante que os eventos de mover/soltar
+    // continuam chegando no carrossel até o fim do gesto, mesmo se o dedo sair
+    // da área dele no meio do arraste — sem isso, um arraste que escapa do
+    // elemento podia "perder" o final do gesto e deixar o carrossel travado,
+    // sem responder a cliques/arrastos seguintes.
+    let dragStartX = 0;
+    let dragCurrentX = 0;
     let isDragging = false;
+    let activePointerId = null;
     let trackWidth = 0;
 
-    heroTrack.addEventListener("touchstart", (e) => {
+    heroTrack.addEventListener("pointerdown", (e) => {
+      if (!e.isPrimary) return;
       isDragging = true;
-      touchStartX = e.touches[0].clientX;
-      touchCurrentX = touchStartX;
+      activePointerId = e.pointerId;
+      dragStartX = e.clientX;
+      dragCurrentX = dragStartX;
       trackWidth = heroTrack.getBoundingClientRect().width;
       heroTrack.style.transition = "none";
+      heroTrack.setPointerCapture(e.pointerId);
       if (heroTimer) clearInterval(heroTimer);
-    }, { passive: true });
+    });
 
-    heroTrack.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      touchCurrentX = e.touches[0].clientX;
-      const deltaX = touchCurrentX - touchStartX;
+    heroTrack.addEventListener("pointermove", (e) => {
+      if (!isDragging || e.pointerId !== activePointerId) return;
+      dragCurrentX = e.clientX;
+      const deltaX = dragCurrentX - dragStartX;
       const basePercent = -heroIndex * 100;
       const dragPercent = (deltaX / trackWidth) * 100;
       heroTrack.style.transform = `translateX(${basePercent + dragPercent}%)`;
-    }, { passive: true });
+    });
 
-    function heroEndDrag() {
-      if (!isDragging) return;
+    function heroEndDrag(e) {
+      if (!isDragging || (e && e.pointerId !== activePointerId)) return;
       isDragging = false;
+      activePointerId = null;
       heroTrack.style.transition = "";
-      const deltaX = touchCurrentX - touchStartX;
+      const deltaX = dragCurrentX - dragStartX;
       const threshold = trackWidth * 0.12;
       if (deltaX > threshold) {
         heroGoTo(heroIndex - 1);
@@ -113,8 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
       heroRestartAutoplay();
     }
 
-    heroTrack.addEventListener("touchend", heroEndDrag);
-    heroTrack.addEventListener("touchcancel", heroEndDrag);
+    heroTrack.addEventListener("pointerup", heroEndDrag);
+    heroTrack.addEventListener("pointercancel", heroEndDrag);
 
     if (heroSlides.length > 1) {
       heroRestartAutoplay();
