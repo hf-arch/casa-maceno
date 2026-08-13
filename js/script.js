@@ -73,6 +73,50 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.addEventListener("click", () => { heroGoTo(i); heroRestartAutoplay(); });
     });
 
+    // Arrastar com o dedo no celular: a faixa acompanha o dedo e, ao soltar,
+    // avança/volta se o arraste passou de ~12% da largura, ou volta pro lugar.
+    let touchStartX = 0;
+    let touchCurrentX = 0;
+    let isDragging = false;
+    let trackWidth = 0;
+
+    heroTrack.addEventListener("touchstart", (e) => {
+      isDragging = true;
+      touchStartX = e.touches[0].clientX;
+      touchCurrentX = touchStartX;
+      trackWidth = heroTrack.getBoundingClientRect().width;
+      heroTrack.style.transition = "none";
+      if (heroTimer) clearInterval(heroTimer);
+    }, { passive: true });
+
+    heroTrack.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      touchCurrentX = e.touches[0].clientX;
+      const deltaX = touchCurrentX - touchStartX;
+      const basePercent = -heroIndex * 100;
+      const dragPercent = (deltaX / trackWidth) * 100;
+      heroTrack.style.transform = `translateX(${basePercent + dragPercent}%)`;
+    }, { passive: true });
+
+    function heroEndDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      heroTrack.style.transition = "";
+      const deltaX = touchCurrentX - touchStartX;
+      const threshold = trackWidth * 0.12;
+      if (deltaX > threshold) {
+        heroGoTo(heroIndex - 1);
+      } else if (deltaX < -threshold) {
+        heroGoTo(heroIndex + 1);
+      } else {
+        heroRender();
+      }
+      heroRestartAutoplay();
+    }
+
+    heroTrack.addEventListener("touchend", heroEndDrag);
+    heroTrack.addEventListener("touchcancel", heroEndDrag);
+
     if (heroSlides.length > 1) {
       heroRestartAutoplay();
     }
