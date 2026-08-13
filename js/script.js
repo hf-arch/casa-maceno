@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "Ouviram do Ipiranga", category: "História do Brasil", url: "historia-do-brasil/ouviram-do-ipiranga.html" },
     { title: "15 de Novembro — Golpe da República", category: "História do Brasil", url: "historia-do-brasil/15-de-novembro.html" },
     { title: "Tiradentes — Herói ou vilão?", category: "História do Brasil", url: "historia-do-brasil/tiradentes.html" },
+    { title: "Amostras", category: "Categoria", url: "amostras/index.html" },
     { title: "Sobre nós", category: "Página", url: "sobre.html" }
   ];
 

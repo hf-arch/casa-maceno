@@ -648,6 +648,14 @@ ul {
   border-radius: 2px;
 }
 
+.section-subtitle {
+  text-align: center;
+  max-width: 480px;
+  margin: -16px auto 28px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
 /* ===================== GRIDS ===================== */
 .grid {
   display: grid;
@@ -916,12 +924,49 @@ ul {
   background-repeat: repeat-y;
 }
 
+.sample-mock--teal { background: linear-gradient(160deg, var(--color-teal-light), var(--color-teal)); }
+.sample-mock--maroon { background: linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark) 75%); }
+.sample-mock--dark { background: linear-gradient(160deg, #3a2318, var(--color-black) 75%); }
+
+/* Selo indicando que o clique abre um PDF em nova aba */
+.sample-mock-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-black);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.sample-mock-badge svg {
+  width: 11px;
+  height: 11px;
+}
+
 .sample-mock-label {
   color: var(--color-white);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
+}
+
+.sample-mock-sub {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 0 14px;
+  margin-top: -12px;
 }
 
 .sample-mock-tab {
