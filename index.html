@@ -74,9 +74,67 @@
 
 <main id="topo">
 
-  <!-- =============== HERO =============== -->
-  <section class="hero" aria-label="Imagem de destaque">
-    <!-- Substitua a classe "hero" no CSS por uma imagem real de fundo quando disponível -->
+  <!-- =============== HERO / CARROSSEL =============== -->
+  <section class="hero-carousel" aria-label="Destaques da Casa Maceno" aria-roledescription="carrossel">
+    <button type="button" class="hero-nav-btn hero-prev" id="heroPrev" aria-label="Slide anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button type="button" class="hero-nav-btn hero-next" id="heroNext" aria-label="Próximo slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <div class="hero-track" id="heroTrack">
+      <div class="hero-slide" aria-hidden="false">
+        <!-- Foto provisória: substituir pela foto real da apostila -->
+        <div class="hero-cover hero-cover--maroon" role="img" aria-label="Sabedoria para Crianças">
+          <span>Sabedoria para Crianças</span>
+          <small>Estudando Provérbios</small>
+          <span class="age-badge age-badge--1">3 a 5<em>anos</em></span>
+        </div>
+
+        <div class="hero-copy">
+          <span class="eyebrow">Apostilas Casa Maceno</span>
+          <h1>Fé e aprendizado, página por página</h1>
+          <p>Materiais pensados para cada fase da infância, para estudar em casa no ritmo da sua família.</p>
+          <a href="apostilas/index.html" class="btn btn-primary">Ver apostilas</a>
+        </div>
+
+        <!-- Foto provisória: substituir pela foto real da apostila -->
+        <div class="hero-cover hero-cover--teal" role="img" aria-label="Bandeiras e Bandeirantes">
+          <span>Bandeiras e Bandeirantes</span>
+          <small>História do Brasil</small>
+          <span class="age-badge age-badge--2">8 a 11<em>anos</em></span>
+        </div>
+      </div>
+
+      <div class="hero-slide" aria-hidden="true">
+        <!-- Foto provisória: substituir pela foto real do planner -->
+        <div class="hero-cover hero-cover--dark" role="img" aria-label="Planner 2026">
+          <span>Planner 2026</span>
+          <small>Organização com propósito</small>
+          <span class="age-badge age-badge--1">Anual<em>uso</em></span>
+        </div>
+
+        <div class="hero-copy">
+          <span class="eyebrow">Novidade</span>
+          <h1>Organize o ano com propósito</h1>
+          <p>Planners para equilibrar rotina, estudos e vida de fé — mês a mês, com leveza.</p>
+          <a href="planners/index.html" class="btn btn-primary">Ver Planners</a>
+        </div>
+
+        <!-- Foto provisória: substituir pela foto real do curso -->
+        <div class="hero-cover hero-cover--maroon" role="img" aria-label="Pais Educadores">
+          <span>Pais Educadores</span>
+          <small>Curso para famílias</small>
+          <span class="age-badge age-badge--2">Curso<em>online</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-dots" id="heroDots">
+      <button type="button" class="is-active" aria-label="Ir para o slide 1"></button>
+      <button type="button" aria-label="Ir para o slide 2"></button>
+    </div>
   </section>
 
   <!-- =============== INTRO =============== -->

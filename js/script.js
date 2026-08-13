@@ -6,6 +6,8 @@
    3. Modal "Ver detalhes" dos produtos (dados editáveis abaixo)
    4. Destaque do link ativo no menu conforme o scroll (âncoras da home)
    5. Alternar tema claro/escuro (com preferência salva)
+   6. Pesquisa (índice editável abaixo)
+   7. Carrossel do hero da home
 =========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -35,6 +37,45 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem(THEME_KEY, next);
       updateThemeButtonState(next);
     });
+  }
+
+  /* ---------- 0b. HERO / CARROSSEL ---------- */
+  const heroTrack = document.getElementById("heroTrack");
+  const heroDots = document.getElementById("heroDots");
+  const heroPrev = document.getElementById("heroPrev");
+  const heroNext = document.getElementById("heroNext");
+
+  if (heroTrack && heroDots) {
+    const heroSlides = heroTrack.querySelectorAll(".hero-slide");
+    const heroDotButtons = heroDots.querySelectorAll("button");
+    let heroIndex = 0;
+    let heroTimer = null;
+
+    function heroRender() {
+      heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
+      heroDotButtons.forEach((dot, i) => dot.classList.toggle("is-active", i === heroIndex));
+      heroSlides.forEach((slide, i) => slide.setAttribute("aria-hidden", String(i !== heroIndex)));
+    }
+
+    function heroGoTo(index) {
+      heroIndex = (index + heroSlides.length) % heroSlides.length;
+      heroRender();
+    }
+
+    function heroRestartAutoplay() {
+      if (heroTimer) clearInterval(heroTimer);
+      heroTimer = setInterval(() => heroGoTo(heroIndex + 1), 7000);
+    }
+
+    if (heroPrev) heroPrev.addEventListener("click", () => { heroGoTo(heroIndex - 1); heroRestartAutoplay(); });
+    if (heroNext) heroNext.addEventListener("click", () => { heroGoTo(heroIndex + 1); heroRestartAutoplay(); });
+    heroDotButtons.forEach((dot, i) => {
+      dot.addEventListener("click", () => { heroGoTo(i); heroRestartAutoplay(); });
+    });
+
+    if (heroSlides.length > 1) {
+      heroRestartAutoplay();
+    }
   }
 
   /* ---------- 1. MENU MOBILE ---------- */
