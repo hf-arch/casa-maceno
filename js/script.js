@@ -3,11 +3,10 @@
    Funcionalidades:
    1. Menu mobile (abrir/fechar)
    2. Fechar menu ao clicar em um link
-   3. Modal "Ver detalhes" dos produtos (dados editáveis abaixo)
-   4. Destaque do link ativo no menu conforme o scroll (âncoras da home)
-   5. Alternar tema claro/escuro (com preferência salva)
-   6. Pesquisa (índice editável abaixo)
-   7. Carrossel do hero da home
+   3. Destaque do link ativo no menu conforme o scroll (âncoras da home)
+   4. Alternar tema claro/escuro (com preferência salva)
+   5. Pesquisa (índice editável abaixo)
+   6. Carrossel do hero da home
 =========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -173,98 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- 3. MODAL "VER DETALHES" ---------- */
-  // Edite/adicione aqui as informações reais de cada produto.
-  // A chave precisa bater com o atributo data-product do card no HTML.
-  const productData = {
-    "9-de-janeiro": {
-      title: "9 de Janeiro — Dia do Fico",
-      text: "Apostila sobre o Dia do Fico: contexto histórico, personagens e sua importância para a Independência do Brasil."
-    },
-    "ouviram-do-ipiranga": {
-      title: "Ouviram do Ipiranga",
-      text: "Contexto, personagens e consequências do Grito do Ipiranga, explicados de forma simples e ilustrada."
-    },
-    "15-de-novembro": {
-      title: "15 de Novembro — Golpe da República",
-      text: "Entenda como se deu a Proclamação da República e o que mudou na vida dos brasileiros."
-    },
-    "tiradentes": {
-      title: "Tiradentes — Herói ou vilão?",
-      text: "Uma apostila que convida à reflexão sobre a Inconfidência Mineira e o papel de Tiradentes na nossa história."
-    },
-    "sabedoria-para-criancas": {
-      title: "Sabedoria para crianças",
-      text: "Um convite para as crianças aprenderem princípios de sabedoria bíblica de forma leve, ilustrada e fácil de entender.",
-      link: "apostila-sabedoria-para-criancas.html"
-    },
-    "poesia-latim-caligrafia": {
-      title: "Estudando Poesia, Latim e Caligrafia com Salmos",
-      text: "Atividades que unem os Salmos ao estudo de poesia, noções de latim e prática de caligrafia.",
-      link: "apostila-poesia-latim-caligrafia.html"
-    },
-    "bandeiras-e-bandeirantes": {
-      title: "Bandeiras e Bandeirantes",
-      text: "Uma apostila sobre os bandeirantes e a formação do território brasileiro, com atividades para fixar o conteúdo.",
-      link: "apostila-bandeiras-e-bandeirantes.html"
-    }
-  };
-
-  const modal = document.getElementById("productModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalText = document.getElementById("modalText");
-  const modalLink = document.getElementById("modalLink");
-
-  function openModal(productKey) {
-    const product = productData[productKey];
-    if (!product || !modal) return;
-
-    modalTitle.textContent = product.title;
-    modalText.textContent = product.text;
-
-    if (modalLink) {
-      if (product.link) {
-        modalLink.href = product.link;
-        modalLink.style.display = "";
-      } else {
-        modalLink.removeAttribute("href");
-        modalLink.style.display = "none";
-      }
-    }
-
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    if (!modal) return;
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
-
-  document.querySelectorAll(".btn-details").forEach((button) => {
-    button.addEventListener("click", () => {
-      const card = button.closest("[data-product]");
-      if (card) openModal(card.dataset.product);
-    });
-  });
-
-  // Best-sellers: o card inteiro (agora um <button>) abre o modal
-  document.querySelectorAll(".feature-card[data-product]").forEach((card) => {
-    card.addEventListener("click", () => openModal(card.dataset.product));
-  });
-
-  document.querySelectorAll("[data-close-modal]").forEach((el) => {
-    el.addEventListener("click", closeModal);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
-
-  /* ---------- 3b. PESQUISA ---------- */
+  /* ---------- 3. PESQUISA ---------- */
   // Índice de tudo que pode ser encontrado pela busca. "url" é sempre relativo
   // à raiz do site — o prefixo certo (nada, ou "../") é calculado automaticamente
   // a partir do src de script.js na própria página, então funciona em qualquer pasta.
@@ -291,10 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "A Revolução de 1930", category: "História do Brasil", url: "historia-do-brasil/revolucao-de-1930.html" },
     { title: "A Semana de Arte Moderna", category: "História do Brasil", url: "historia-do-brasil/semana-de-arte-moderna.html" },
     { title: "Toda a História do Brasil para Pequenos", category: "Categoria", url: "historia-do-brasil/index.html" },
-    { title: "9 de Janeiro — Dia do Fico", category: "Best-seller", url: "index.html#best-sellers" },
-    { title: "Ouviram do Ipiranga", category: "Best-seller", url: "index.html#best-sellers" },
-    { title: "15 de Novembro — Golpe da República", category: "Best-seller", url: "index.html#best-sellers" },
-    { title: "Tiradentes", category: "Best-seller", url: "index.html#best-sellers" },
+    { title: "9 de Janeiro — Dia do Fico", category: "História do Brasil", url: "historia-do-brasil/9-de-janeiro.html" },
+    { title: "Ouviram do Ipiranga", category: "História do Brasil", url: "historia-do-brasil/ouviram-do-ipiranga.html" },
+    { title: "15 de Novembro — Golpe da República", category: "História do Brasil", url: "historia-do-brasil/15-de-novembro.html" },
+    { title: "Tiradentes — Herói ou vilão?", category: "História do Brasil", url: "historia-do-brasil/tiradentes.html" },
     { title: "Sobre nós", category: "Página", url: "sobre.html" }
   ];
 

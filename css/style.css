@@ -352,6 +352,9 @@ ul {
 .hero-track {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  /* Deixa o navegador tratar rolagem vertical normalmente e reserva o gesto
+     horizontal para o JS arrastar o carrossel, sem os dois brigarem no mobile */
+  touch-action: pan-y;
 }
 
 .hero-slide {
@@ -919,44 +922,67 @@ ul {
   border-radius: 999px;
 }
 
-/* ===================== AVALIAÇÕES ===================== */
+/* ===================== AVALIAÇÕES (prints do Instagram) ===================== */
 .reviews-grid {
   min-height: 60px;
 }
 
-.review-card {
-  background: var(--bg-alt);
-  border: 1px solid var(--bg-alt-border);
+/* Card de print: só exibição, sem link nem clique — moldura discreta ao
+   redor da própria captura de tela do Instagram (que já vem com sua UI). */
+.review-shot {
+  display: block;
   border-radius: var(--radius);
-  padding: 18px;
+  overflow: hidden;
+  border: 1px solid var(--bg-alt-border);
+  box-shadow: 0 2px 6px var(--shadow);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.review-shot:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px var(--shadow);
+}
+
+.review-shot img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* Placeholder enquanto os prints reais não são adicionados — ver instrução no HTML */
+.review-shot-placeholder {
+  aspect-ratio: 4 / 5;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.review-stars {
-  color: var(--color-maroon);
-  letter-spacing: 2px;
-}
-
-.review-author {
-  display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 4px;
+  justify-content: center;
+  gap: 8px;
+  color: var(--color-white);
+  text-align: center;
+  padding: 20px;
 }
 
-.review-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg-alt);
+.review-shot-placeholder svg {
+  width: 28px;
+  height: 28px;
 }
 
-.review-name {
-  font-weight: 600;
-  font-size: 0.9rem;
+.review-shot-placeholder span {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
 }
+
+.review-shot-placeholder small {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.review-shot-placeholder--maroon { background: linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark) 75%); }
+.review-shot-placeholder--teal { background: linear-gradient(160deg, var(--color-teal-light), var(--color-teal) 75%); }
+.review-shot-placeholder--dark { background: linear-gradient(160deg, #3a2318, var(--color-black) 75%); }
 
 /* ===================== FOOTER ===================== */
 .site-footer {
@@ -964,10 +990,26 @@ ul {
 }
 
 .footer-banner {
+  position: relative;
   height: 220px;
-  background:
-    linear-gradient(180deg, rgba(26,26,26,0.15), rgba(26,26,26,0.6)),
-    linear-gradient(135deg, #9c8a63, #4a3f2c);
+  overflow: hidden;
+  background: linear-gradient(135deg, #9c8a63, #4a3f2c);
+}
+
+.footer-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.footer-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.15), rgba(26, 26, 26, 0.6));
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -1035,7 +1077,7 @@ ul {
   height: 100%;
 }
 
-/* ===================== MODAL "VER DETALHES" ===================== */
+/* ===================== MODAL (base, usado pela pesquisa) ===================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -1086,18 +1128,6 @@ ul {
   line-height: 1;
   cursor: pointer;
   color: var(--text-muted);
-}
-
-.modal-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 18px;
-  flex-wrap: wrap;
-}
-
-.modal-actions .btn {
-  flex: 1 1 auto;
-  text-align: center;
 }
 
 /* ===================== MODAL DE PESQUISA ===================== */

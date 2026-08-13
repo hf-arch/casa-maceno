@@ -1,475 +1,986 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-<title>Casa Maceno | Materiais Cristãos, Apostilas e Planners</title>
-<meta name="description" content="Casa Maceno - loja de apostilas, planners e cursos cristãos que unem fé e organização.">
-<link rel="icon" type="image/png" href="assets/logo.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Casa Maceno | Materiais Cristãos, Apostilas e Planners</title>
+    <meta
+      name="description"
+      content="Casa Maceno - loja de apostilas, planners e cursos cristãos que unem fé e organização."
+    />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
 
-<!-- Aplica o tema salvo (claro/escuro) antes da 1ª pintura da página, evitando "flash" -->
-<script>
-  (function () {
-    var saved = localStorage.getItem("casaMacenoTheme");
-    var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    document.documentElement.setAttribute("data-theme", theme);
-  })();
-</script>
+    <!-- Aplica o tema salvo (claro/escuro) antes da 1ª pintura da página, evitando "flash" -->
+    <script>
+      (function () {
+        var saved = localStorage.getItem("casaMacenoTheme");
+        var theme =
+          saved ||
+          (window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
 
-<!-- Fontes (Google Fonts) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Fontes (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- =============== HEADER =============== -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html#topo" class="logo">
+          <img
+            src="assets/logo-black.png"
+            alt="Casa Maceno"
+            class="logo-img logo-img--light"
+          />
+          <img
+            src="assets/logo.png"
+            alt="Casa Maceno"
+            class="logo-img logo-img--dark"
+          />
+          <span class="logo-text">Casa Maceno</span>
+        </a>
 
-<!-- =============== HEADER =============== -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html#topo" class="logo">
-      <img src="assets/logo-black.png" alt="Casa Maceno" class="logo-img logo-img--light">
-      <img src="assets/logo.png" alt="Casa Maceno" class="logo-img logo-img--dark">
-      <span class="logo-text">Casa Maceno</span>
-    </a>
-
-    <div class="header-actions">
-      <button class="theme-toggle search-toggle" id="searchToggle" type="button" aria-label="Pesquisar no site">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      </button>
-
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro/escuro" aria-pressed="false">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
-      </button>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <nav class="main-nav" id="mainNav">
-      <ul>
-        <li><a href="#topo" class="nav-link is-active" aria-current="page">Início</a></li>
-        <li class="has-dropdown">
-          <button type="button" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            Conteúdos
-            <svg class="dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        <div class="header-actions">
+          <button
+            class="theme-toggle search-toggle"
+            id="searchToggle"
+            type="button"
+            aria-label="Pesquisar no site"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
+            </svg>
           </button>
-          <ul class="dropdown-menu">
-            <li><a href="apostilas/index.html" class="nav-link">Apostilas</a></li>
-            <li><a href="planners/index.html" class="nav-link">Planners</a></li>
-            <li><a href="cursos/index.html" class="nav-link">Cursos</a></li>
-            <li><a href="historia-do-brasil/index.html" class="nav-link">História do Brasil</a></li>
+
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Alternar tema claro/escuro"
+            aria-pressed="false"
+          >
+            <svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4.5" />
+              <path
+                d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"
+              />
+            </svg>
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" />
+            </svg>
+          </button>
+
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="mainNav"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+        <nav class="main-nav" id="mainNav">
+          <ul>
+            <li>
+              <a href="#topo" class="nav-link is-active" aria-current="page"
+                >Início</a
+              >
+            </li>
+            <li class="has-dropdown">
+              <button
+                type="button"
+                class="nav-link dropdown-toggle"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Conteúdos
+                <svg
+                  class="dropdown-caret"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="apostilas/index.html" class="nav-link">Apostilas</a>
+                </li>
+                <li>
+                  <a href="planners/index.html" class="nav-link">Planners</a>
+                </li>
+                <li><a href="cursos/index.html" class="nav-link">Cursos</a></li>
+                <li>
+                  <a href="historia-do-brasil/index.html" class="nav-link"
+                    >História do Brasil</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="sobre.html" class="nav-link">Sobre nós</a></li>
+            <li><a href="#avaliacoes" class="nav-link">Avaliações</a></li>
           </ul>
-        </li>
-        <li><a href="sobre.html" class="nav-link">Sobre nós</a></li>
-        <li><a href="#avaliacoes" class="nav-link">Avaliações</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="topo">
-
-  <!-- =============== HERO / CARROSSEL =============== -->
-  <section class="hero-carousel" aria-label="Destaques da Casa Maceno" aria-roledescription="carrossel">
-    <button type="button" class="hero-nav-btn hero-prev" id="heroPrev" aria-label="Slide anterior">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
-    <button type="button" class="hero-nav-btn hero-next" id="heroNext" aria-label="Próximo slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
-
-    <div class="hero-track" id="heroTrack">
-      <!-- Slide 1: Apostilas -->
-      <div class="hero-slide" aria-hidden="false">
-        <div class="hero-cover">
-          <img src="assets/covers/sabedoria-para-criancas-pad.png" alt="Sabedoria para Crianças">
-          <span class="age-badge age-badge--1">3 a 5<em>anos</em></span>
-        </div>
-
-        <div class="hero-copy">
-          <span class="eyebrow">Apostilas Casa Maceno</span>
-          <h1>Fé e aprendizado, página por página</h1>
-          <p>Materiais pensados para cada fase da infância, para estudar em casa no ritmo da sua família.</p>
-          <a href="apostilas/index.html" class="btn btn-primary">Ver apostilas</a>
-        </div>
-
-        <div class="hero-cover">
-          <img src="assets/covers/bandeiras-e-bandeirantes.png" alt="Bandeiras e Bandeirantes">
-          <span class="age-badge age-badge--2">8 a 11<em>anos</em></span>
-        </div>
+        </nav>
       </div>
+    </header>
 
-      <!-- Slide 2: Best-sellers -->
-      <div class="hero-slide" aria-hidden="true">
-        <div class="hero-cover">
-          <img src="assets/covers/9-de-janeiro-crop.png" alt="9 de Janeiro — Dia do Fico">
-        </div>
-
-        <div class="hero-copy">
-          <span class="eyebrow">Mais pedidos</span>
-          <h1>Os queridinhos da Casa Maceno</h1>
-          <p>As apostilas de história que mais fazem sucesso entre as famílias, contadas de um jeito que prende a atenção.</p>
-          <a href="index.html#best-sellers" class="btn btn-primary">Ver best-sellers</a>
-        </div>
-
-        <div class="hero-cover">
-          <img src="assets/covers/tiradentes-heroi-ou-vilao.png" alt="Tiradentes — Herói ou vilão?">
-        </div>
-      </div>
-
-      <!-- Slide 3: Cursos -->
-      <div class="hero-slide" aria-hidden="true">
-        <div class="hero-cover">
-          <img src="assets/covers/clube-maravilhamento.png" alt="Clube Maravilhamento">
-        </div>
-
-        <div class="hero-copy">
-          <span class="eyebrow">Cursos Casa Maceno</span>
-          <h1>Aprenda e cresça em família</h1>
-          <p>Cursos para toda a família aprender, refletir e crescer na fé, com conteúdo prático para o dia a dia.</p>
-          <a href="cursos/index.html" class="btn btn-primary">Ver cursos</a>
-        </div>
-
-        <!-- Foto provisória: substituir pela foto real do curso Pais Educadores -->
-        <div class="hero-cover hero-cover--maroon" role="img" aria-label="Pais Educadores">
-          <span>Pais Educadores</span>
-          <small>Curso para famílias</small>
-        </div>
-      </div>
-
-      <!-- Slide 4: História do Brasil para Pequenos -->
-      <div class="hero-slide" aria-hidden="true">
-        <div class="hero-cover">
-          <img src="assets/covers/13-de-maio-pad.png" alt="13 de Maio — A história bem contada">
-        </div>
-
-        <div class="hero-copy">
-          <span class="eyebrow">História do Brasil para Pequenos</span>
-          <h1>A história do Brasil, contada com carinho</h1>
-          <p>Conteúdo adaptado para cada fase da infância, unindo aprendizado e reflexão crítica.</p>
-          <a href="historia-do-brasil/index.html" class="btn btn-primary">Ver história do Brasil</a>
-        </div>
-
-        <div class="hero-cover">
-          <img src="assets/covers/descobrimento-do-brasil.png" alt="O Descobrimento do Brasil">
-        </div>
-      </div>
-
-      <!-- Slide 5: Planners -->
-      <div class="hero-slide" aria-hidden="true">
-        <div class="hero-cover">
-          <img src="assets/covers/planner-2026.png" alt="Planner 2026">
-        </div>
-
-        <div class="hero-copy">
-          <span class="eyebrow">Novidade</span>
-          <h1>Organize o ano com propósito</h1>
-          <p>Planners para equilibrar rotina, estudos e vida de fé — mês a mês, com leveza.</p>
-          <a href="planners/index.html" class="btn btn-primary">Ver Planners</a>
-        </div>
-
-        <!-- Foto provisória: substituir pela foto real do Planner 2027 -->
-        <div class="hero-cover hero-cover--dark" role="img" aria-label="Planner 2027">
-          <span>Planner 2027</span>
-          <small>Organização com propósito</small>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-dots" id="heroDots">
-      <button type="button" class="is-active" aria-label="Ir para o slide 1"></button>
-      <button type="button" aria-label="Ir para o slide 2"></button>
-      <button type="button" aria-label="Ir para o slide 3"></button>
-      <button type="button" aria-label="Ir para o slide 4"></button>
-      <button type="button" aria-label="Ir para o slide 5"></button>
-    </div>
-  </section>
-
-  <!-- =============== INTRO =============== -->
-  <section class="intro container" id="sobre">
-    <p>
-      Somos uma família cristã que cria materiais pelo currículo clássico cristão para apoiar você na jornada da educação domiciliar, sempre em busca do bom, do belo e do verdadeiro.
-    </p>
-  </section>
-
-  <!-- =============== BEST-SELLERS =============== -->
-  <section class="section best-sellers" id="best-sellers" aria-labelledby="best-sellers-title">
-    <div class="container">
-      <h2 id="best-sellers-title" class="section-title">Best-sellers</h2>
-
-      <div class="grid grid-2 best-sellers-grid">
-
-        <button type="button" class="feature-card feature-card--dark1" data-product="9-de-janeiro">
-          <h3>9 de Janeiro<br><span class="feature-sub">dia do fico</span></h3>
-          <span class="btn btn-primary" aria-hidden="true">Ver detalhes</span>
+    <main id="topo">
+      <!-- =============== HERO / CARROSSEL =============== -->
+      <section
+        class="hero-carousel"
+        aria-label="Destaques da Casa Maceno"
+        aria-roledescription="carrossel"
+      >
+        <button
+          type="button"
+          class="hero-nav-btn hero-prev"
+          id="heroPrev"
+          aria-label="Slide anterior"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="hero-nav-btn hero-next"
+          id="heroNext"
+          aria-label="Próximo slide"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </button>
 
-        <button type="button" class="feature-card feature-card--teal" data-product="ouviram-do-ipiranga">
-          <h3>Ouviram do Ipiranga<br><span class="feature-sub">Contexto, personagens e consequências</span></h3>
-          <span class="btn btn-primary" aria-hidden="true">Ver detalhes</span>
-        </button>
+        <div class="hero-track" id="heroTrack">
+          <!-- Slide 1: Apostilas -->
+          <div class="hero-slide" aria-hidden="false">
+            <div class="hero-cover">
+              <img
+                src="assets/covers/sabedoria-para-criancas-pad.png"
+                alt="Sabedoria para Crianças"
+              />
+              <span class="age-badge age-badge--1">3 a 5<em>anos</em></span>
+            </div>
 
-        <button type="button" class="feature-card feature-card--gray" data-product="15-de-novembro">
-          <h3>15 de novembro<br><span class="feature-sub">golpe da república</span></h3>
-          <span class="btn btn-primary" aria-hidden="true">Ver detalhes</span>
-        </button>
+            <div class="hero-copy">
+              <span class="eyebrow">Apostilas Casa Maceno</span>
+              <h1>Fé e aprendizado, página por página</h1>
+              <p>
+                Materiais pensados para cada fase da infância, para estudar em
+                casa no ritmo da sua família.
+              </p>
+              <a href="apostilas/index.html" class="btn btn-primary"
+                >Ver apostilas</a
+              >
+            </div>
 
-        <button type="button" class="feature-card feature-card--dark2" data-product="tiradentes">
-          <h3>Tiradentes<br><span class="feature-sub">Herói ou vilão?</span></h3>
-          <span class="btn btn-primary" aria-hidden="true">Ver detalhes</span>
-        </button>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =============== APOSTILAS (prévia) =============== -->
-  <section class="section" id="apostilas-preview" aria-labelledby="apostilas-title">
-    <div class="container">
-      <h2 id="apostilas-title" class="section-title">Apostilas</h2>
-
-      <div class="grid grid-3">
-        <a class="card" href="apostilas/sabedoria-para-criancas.html" data-product="sabedoria-para-criancas">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.83-.67-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/></svg>
-          </span>
-          <h3>Sabedoria para crianças</h3>
-        </a>
-
-        <a class="card" href="apostilas/poesia-latim-caligrafia.html" data-product="poesia-latim-caligrafia">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.83-.67-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/></svg>
-          </span>
-          <h3>Estudando Poesia, Latim e Caligrafia com Salmos</h3>
-        </a>
-
-        <a class="card" href="apostilas/bandeiras-e-bandeirantes.html" data-product="bandeiras-e-bandeirantes">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.83-.67-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/></svg>
-          </span>
-          <h3>Bandeiras e Bandeirantes</h3>
-        </a>
-      </div>
-
-      <div class="section-cta">
-        <a href="apostilas/index.html" class="btn btn-outline">Ver todas as apostilas</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============== PLANNERS =============== -->
-  <section class="section" id="planners" aria-labelledby="planners-title">
-    <div class="container">
-      <h2 id="planners-title" class="section-title">Planners</h2>
-
-      <div class="grid grid-3">
-        <a class="card" href="planners/2025.html" data-product="planner-2025">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4"/><path d="M8 13h2M8 16h2M11 13h2M11 16h2M14 13h2"/></svg>
-          </span>
-          <h3>2025</h3>
-        </a>
-
-        <a class="card" href="planners/2026.html" data-product="planner-2026">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4"/><path d="M8 13h2M8 16h2M11 13h2M11 16h2M14 13h2"/></svg>
-          </span>
-          <h3>2026</h3>
-        </a>
-
-        <a class="card" href="planners/2027.html" data-product="planner-2027">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4"/><path d="M8 13h2M8 16h2M11 13h2M11 16h2M14 13h2"/></svg>
-          </span>
-          <h3>2027</h3>
-        </a>
-      </div>
-
-      <div class="section-cta">
-        <a href="planners/index.html" class="btn btn-outline">Ver todos os Planners</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============== HISTÓRIA DO BRASIL PARA PEQUENOS =============== -->
-  <section class="section" aria-labelledby="historia-title">
-    <div class="container">
-      <h2 id="historia-title" class="section-title">História do Brasil para Pequenos</h2>
-
-      <div class="grid grid-3">
-        <a class="card" href="historia-do-brasil/2-a-4.html" data-product="historia-2-a-4">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="M9 5h6v14H9z"/><path d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"/></svg>
-          </span>
-          <h3>2 a 4</h3>
-        </a>
-
-        <a class="card" href="historia-do-brasil/5-a-7.html" data-product="historia-5-a-7">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="M9 5h6v14H9z"/><path d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"/></svg>
-          </span>
-          <h3>5 a 7</h3>
-        </a>
-
-        <a class="card" href="historia-do-brasil/8-a-11.html" data-product="historia-8-a-11">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="M9 5h6v14H9z"/><path d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"/></svg>
-          </span>
-          <h3>8 a 11</h3>
-        </a>
-      </div>
-
-      <div class="section-cta">
-        <a href="historia-do-brasil/index.html" class="btn btn-outline">Ver todo conteúdo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============== CURSOS =============== -->
-  <section class="section" aria-labelledby="cursos-title">
-    <div class="container">
-      <h2 id="cursos-title" class="section-title">Cursos</h2>
-
-      <div class="grid grid-3">
-        <a class="card" href="cursos/clube-maravilhamento.html" data-product="clube-maravilhamento">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="M9 5h6v14H9z"/><path d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"/></svg>
-          </span>
-          <h3>Clube maravilhamento</h3>
-        </a>
-
-        <a class="card" href="cursos/pais-educadores.html" data-product="pais-educadores">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="M9 5h6v14H9z"/><path d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"/></svg>
-          </span>
-          <h3>Pais Educadores</h3>
-        </a>
-
-        <a class="card" href="cursos/aprendendo-poesia-com-fabulas.html" data-product="aprendendo-poesia-com-fabulas">
-          <span class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="M9 5h6v14H9z"/><path d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"/></svg>
-          </span>
-          <h3>Aprendendo Poesia com Fábulas</h3>
-        </a>
-      </div>
-
-      <div class="section-cta">
-        <a href="cursos/index.html" class="btn btn-outline">Ver todos os Cursos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============== AMOSTRAS =============== -->
-  <section class="section amostras" aria-labelledby="amostras-title">
-    <div class="container">
-      <h2 id="amostras-title" class="section-title">Amostras</h2>
-
-      <div class="grid grid-3">
-        <article class="sample-card">
-          <div class="sample-mock">
-            <span class="sample-mock-label">APOSTILAS</span>
-            <span class="sample-mock-tab"></span>
+            <div class="hero-cover">
+              <img
+                src="assets/covers/bandeiras-e-bandeirantes.png"
+                alt="Bandeiras e Bandeirantes"
+              />
+              <span class="age-badge age-badge--2">8 a 11<em>anos</em></span>
+            </div>
           </div>
-        </article>
-        <article class="sample-card">
-          <div class="sample-mock">
-            <span class="sample-mock-label">APOSTILAS</span>
-            <span class="sample-mock-tab"></span>
+
+          <!-- Slide 2: Best-sellers -->
+          <div class="hero-slide" aria-hidden="true">
+            <div class="hero-cover">
+              <img
+                src="assets/covers/9-de-janeiro-crop.png"
+                alt="9 de Janeiro — Dia do Fico"
+              />
+            </div>
+
+            <div class="hero-copy">
+              <span class="eyebrow">Mais pedidos</span>
+              <h1>Os queridinhos da Casa Maceno</h1>
+              <p>
+                As apostilas de história que mais fazem sucesso entre as
+                famílias, contadas de um jeito que prende a atenção.
+              </p>
+              <a href="index.html#best-sellers" class="btn btn-primary"
+                >Ver best-sellers</a
+              >
+            </div>
+
+            <div class="hero-cover">
+              <img
+                src="assets/covers/tiradentes-heroi-ou-vilao.png"
+                alt="Tiradentes — Herói ou vilão?"
+              />
+            </div>
           </div>
-        </article>
-        <article class="sample-card">
-          <div class="sample-mock">
-            <span class="sample-mock-label">APOSTILAS</span>
-            <span class="sample-mock-tab"></span>
+
+          <!-- Slide 3: Cursos -->
+          <div class="hero-slide" aria-hidden="true">
+            <div class="hero-cover">
+              <img
+                src="assets/covers/clube-maravilhamento.png"
+                alt="Clube Maravilhamento"
+              />
+            </div>
+
+            <div class="hero-copy">
+              <span class="eyebrow">Cursos Casa Maceno</span>
+              <h1>Aprenda e cresça em família</h1>
+              <p>
+                Cursos para toda a família aprender, refletir e crescer na fé,
+                com conteúdo prático para o dia a dia.
+              </p>
+              <a href="cursos/index.html" class="btn btn-primary">Ver cursos</a>
+            </div>
+
+            <!-- Foto provisória: substituir pela foto real do curso Pais Educadores -->
+            <div
+              class="hero-cover hero-cover--maroon"
+              role="img"
+              aria-label="Pais Educadores"
+            >
+              <span>Pais Educadores</span>
+              <small>Curso para famílias</small>
+            </div>
           </div>
-        </article>
+
+          <!-- Slide 4: História do Brasil para Pequenos -->
+          <div class="hero-slide" aria-hidden="true">
+            <div class="hero-cover">
+              <img
+                src="assets/covers/13-de-maio-pad.png"
+                alt="13 de Maio — A história bem contada"
+              />
+            </div>
+
+            <div class="hero-copy">
+              <span class="eyebrow">História do Brasil para Pequenos</span>
+              <h1>A história do Brasil, contada com carinho</h1>
+              <p>
+                Conteúdo adaptado para cada fase da infância, unindo aprendizado
+                e reflexão crítica.
+              </p>
+              <a href="historia-do-brasil/index.html" class="btn btn-primary"
+                >Ver história do Brasil</a
+              >
+            </div>
+
+            <div class="hero-cover">
+              <img
+                src="assets/covers/descobrimento-do-brasil.png"
+                alt="O Descobrimento do Brasil"
+              />
+            </div>
+          </div>
+
+          <!-- Slide 5: Planners -->
+          <div class="hero-slide" aria-hidden="true">
+            <div class="hero-cover">
+              <img src="assets/covers/planner-2026.png" alt="Planner 2026" />
+            </div>
+
+            <div class="hero-copy">
+              <span class="eyebrow">Novidade</span>
+              <h1>Organize o ano com propósito</h1>
+              <p>
+                Planners para equilibrar rotina, estudos e vida de fé — mês a
+                mês, com leveza.
+              </p>
+              <a href="planners/index.html" class="btn btn-primary"
+                >Ver Planners</a
+              >
+            </div>
+
+            <!-- Foto provisória: substituir pela foto real do Planner 2027 -->
+            <div
+              class="hero-cover hero-cover--dark"
+              role="img"
+              aria-label="Planner 2027"
+            >
+              <span>Planner 2027</span>
+              <small>Organização com propósito</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-dots" id="heroDots">
+          <button
+            type="button"
+            class="is-active"
+            aria-label="Ir para o slide 1"
+          ></button>
+          <button type="button" aria-label="Ir para o slide 2"></button>
+          <button type="button" aria-label="Ir para o slide 3"></button>
+          <button type="button" aria-label="Ir para o slide 4"></button>
+          <button type="button" aria-label="Ir para o slide 5"></button>
+        </div>
+      </section>
+
+      <!-- =============== INTRO =============== -->
+      <section class="intro container" id="sobre">
+        <p>
+          Somos uma família cristã que cria materiais pelo currículo clássico
+          cristão para apoiar você na jornada da educação domiciliar, sempre em
+          busca do bom, do belo e do verdadeiro.
+        </p>
+      </section>
+
+      <!-- =============== BEST-SELLERS =============== -->
+      <section
+        class="section best-sellers"
+        id="best-sellers"
+        aria-labelledby="best-sellers-title"
+      >
+        <div class="container">
+          <h2 id="best-sellers-title" class="section-title">Best-sellers</h2>
+
+          <div class="grid grid-2 best-sellers-grid">
+            <a
+              href="historia-do-brasil/9-de-janeiro.html"
+              class="feature-card feature-card--dark1"
+              data-product="9-de-janeiro"
+            >
+              <h3>
+                9 de Janeiro<br /><span class="feature-sub">dia do fico</span>
+              </h3>
+            </a>
+
+            <a
+              href="historia-do-brasil/ouviram-do-ipiranga.html"
+              class="feature-card feature-card--teal"
+              data-product="ouviram-do-ipiranga"
+            >
+              <h3>
+                Ouviram do Ipiranga<br /><span class="feature-sub"
+                  >Contexto, personagens e consequências</span
+                >
+              </h3>
+            </a>
+
+            <a
+              href="historia-do-brasil/15-de-novembro.html"
+              class="feature-card feature-card--gray"
+              data-product="15-de-novembro"
+            >
+              <h3>
+                15 de novembro<br /><span class="feature-sub"
+                  >golpe da república</span
+                >
+              </h3>
+            </a>
+
+            <a
+              href="historia-do-brasil/tiradentes.html"
+              class="feature-card feature-card--dark2"
+              data-product="tiradentes"
+            >
+              <h3>
+                Tiradentes<br /><span class="feature-sub">Herói ou vilão?</span>
+              </h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== APOSTILAS (prévia) =============== -->
+      <section
+        class="section"
+        id="apostilas-preview"
+        aria-labelledby="apostilas-title"
+      >
+        <div class="container">
+          <h2 id="apostilas-title" class="section-title">Apostilas</h2>
+
+          <div class="grid grid-3">
+            <a
+              class="card"
+              href="apostilas/sabedoria-para-criancas.html"
+              data-product="sabedoria-para-criancas"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"
+                  />
+                  <path
+                    d="M20 5.5c0-.83-.67-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"
+                  />
+                </svg>
+              </span>
+              <h3>Sabedoria para crianças</h3>
+            </a>
+
+            <a
+              class="card"
+              href="apostilas/poesia-latim-caligrafia.html"
+              data-product="poesia-latim-caligrafia"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"
+                  />
+                  <path
+                    d="M20 5.5c0-.83-.67-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"
+                  />
+                </svg>
+              </span>
+              <h3>Estudando Poesia, Latim e Caligrafia com Salmos</h3>
+            </a>
+
+            <a
+              class="card"
+              href="apostilas/bandeiras-e-bandeirantes.html"
+              data-product="bandeiras-e-bandeirantes"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"
+                  />
+                  <path
+                    d="M20 5.5c0-.83-.67-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"
+                  />
+                </svg>
+              </span>
+              <h3>Bandeiras e Bandeirantes</h3>
+            </a>
+          </div>
+
+          <div class="section-cta">
+            <a href="apostilas/index.html" class="btn btn-outline"
+              >Ver todas as apostilas</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== PLANNERS =============== -->
+      <section class="section" id="planners" aria-labelledby="planners-title">
+        <div class="container">
+          <h2 id="planners-title" class="section-title">Planners</h2>
+
+          <div class="grid grid-3">
+            <a
+              class="card"
+              href="planners/2025.html"
+              data-product="planner-2025"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <rect x="4" y="5" width="16" height="15" rx="1.5" />
+                  <path d="M4 9h16M8 3v4M16 3v4" />
+                  <path d="M8 13h2M8 16h2M11 13h2M11 16h2M14 13h2" />
+                </svg>
+              </span>
+              <h3>2025</h3>
+            </a>
+
+            <a
+              class="card"
+              href="planners/2026.html"
+              data-product="planner-2026"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <rect x="4" y="5" width="16" height="15" rx="1.5" />
+                  <path d="M4 9h16M8 3v4M16 3v4" />
+                  <path d="M8 13h2M8 16h2M11 13h2M11 16h2M14 13h2" />
+                </svg>
+              </span>
+              <h3>2026</h3>
+            </a>
+
+            <a
+              class="card"
+              href="planners/2027.html"
+              data-product="planner-2027"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <rect x="4" y="5" width="16" height="15" rx="1.5" />
+                  <path d="M4 9h16M8 3v4M16 3v4" />
+                  <path d="M8 13h2M8 16h2M11 13h2M11 16h2M14 13h2" />
+                </svg>
+              </span>
+              <h3>2027</h3>
+            </a>
+          </div>
+
+          <div class="section-cta">
+            <a href="planners/index.html" class="btn btn-outline"
+              >Ver todos os Planners</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== HISTÓRIA DO BRASIL PARA PEQUENOS =============== -->
+      <section class="section" aria-labelledby="historia-title">
+        <div class="container">
+          <h2 id="historia-title" class="section-title">
+            História do Brasil para Pequenos
+          </h2>
+
+          <div class="grid grid-3">
+            <a
+              class="card"
+              href="historia-do-brasil/2-a-4.html"
+              data-product="historia-2-a-4"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"
+                  />
+                  <path d="M9 5h6v14H9z" />
+                  <path
+                    d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"
+                  />
+                </svg>
+              </span>
+              <h3>2 a 4</h3>
+            </a>
+
+            <a
+              class="card"
+              href="historia-do-brasil/5-a-7.html"
+              data-product="historia-5-a-7"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"
+                  />
+                  <path d="M9 5h6v14H9z" />
+                  <path
+                    d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"
+                  />
+                </svg>
+              </span>
+              <h3>5 a 7</h3>
+            </a>
+
+            <a
+              class="card"
+              href="historia-do-brasil/8-a-11.html"
+              data-product="historia-8-a-11"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"
+                  />
+                  <path d="M9 5h6v14H9z" />
+                  <path
+                    d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"
+                  />
+                </svg>
+              </span>
+              <h3>8 a 11</h3>
+            </a>
+          </div>
+
+          <div class="section-cta">
+            <a href="historia-do-brasil/index.html" class="btn btn-outline"
+              >Ver todo conteúdo</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== CURSOS =============== -->
+      <section class="section" aria-labelledby="cursos-title">
+        <div class="container">
+          <h2 id="cursos-title" class="section-title">Cursos</h2>
+
+          <div class="grid grid-3">
+            <a
+              class="card"
+              href="cursos/clube-maravilhamento.html"
+              data-product="clube-maravilhamento"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"
+                  />
+                  <path d="M9 5h6v14H9z" />
+                  <path
+                    d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"
+                  />
+                </svg>
+              </span>
+              <h3>Clube maravilhamento</h3>
+            </a>
+
+            <a
+              class="card"
+              href="cursos/pais-educadores.html"
+              data-product="pais-educadores"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"
+                  />
+                  <path d="M9 5h6v14H9z" />
+                  <path
+                    d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"
+                  />
+                </svg>
+              </span>
+              <h3>Pais Educadores</h3>
+            </a>
+
+            <a
+              class="card"
+              href="cursos/aprendendo-poesia-com-fabulas.html"
+              data-product="aprendendo-poesia-com-fabulas"
+            >
+              <span class="card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 6.5A1.5 1.5 0 0 1 4.5 5H8v14H4.5A1.5 1.5 0 0 1 3 17.5v-11Z"
+                  />
+                  <path d="M9 5h6v14H9z" />
+                  <path
+                    d="M21 6.5A1.5 1.5 0 0 0 19.5 5H16v14h3.5a1.5 1.5 0 0 0 1.5-1.5v-11Z"
+                  />
+                </svg>
+              </span>
+              <h3>Aprendendo Poesia com Fábulas</h3>
+            </a>
+          </div>
+
+          <div class="section-cta">
+            <a href="cursos/index.html" class="btn btn-outline"
+              >Ver todos os Cursos</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== AMOSTRAS =============== -->
+      <section class="section amostras" aria-labelledby="amostras-title">
+        <div class="container">
+          <h2 id="amostras-title" class="section-title">Amostras</h2>
+
+          <div class="grid grid-3">
+            <article class="sample-card">
+              <div class="sample-mock">
+                <span class="sample-mock-label">APOSTILAS</span>
+                <span class="sample-mock-tab"></span>
+              </div>
+            </article>
+            <article class="sample-card">
+              <div class="sample-mock">
+                <span class="sample-mock-label">APOSTILAS</span>
+                <span class="sample-mock-tab"></span>
+              </div>
+            </article>
+            <article class="sample-card">
+              <div class="sample-mock">
+                <span class="sample-mock-label">APOSTILAS</span>
+                <span class="sample-mock-tab"></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== AVALIAÇÕES =============== -->
+      <!-- Espaço só de visualização para prints do Instagram de clientes elogiando a loja. -->
+      <!-- Para trocar um placeholder por um print real:
+           1. Salve a imagem em assets/avaliacoes/ (crie a pasta se ainda não existir).
+           2. Troque o bloco <div class="review-shot review-shot-placeholder ...">...</div>
+              por: <div class="review-shot"><img src="assets/avaliacoes/nome-do-print.png" alt="Print do Instagram: depoimento de @cliente sobre a Casa Maceno"></div>
+           3. Para adicionar mais prints, duplique o bloco <div class="review-shot">...</div> dentro do .grid-3. -->
+      <section
+        class="section reviews"
+        id="avaliacoes"
+        aria-labelledby="avaliacoes-title"
+      >
+        <div class="container">
+          <h2 id="avaliacoes-title" class="section-title">Avaliações</h2>
+
+          <div class="grid grid-3 reviews-grid" id="reviewsGrid">
+            <div
+              class="review-shot review-shot-placeholder review-shot-placeholder--maroon"
+              role="img"
+              aria-label="Print do Instagram — depoimento de cliente (em breve)"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+              </svg>
+              <span>Print do Instagram</span>
+              <small>Depoimento em breve</small>
+            </div>
+
+            <div
+              class="review-shot review-shot-placeholder review-shot-placeholder--teal"
+              role="img"
+              aria-label="Print do Instagram — depoimento de cliente (em breve)"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+              </svg>
+              <span>Print do Instagram</span>
+              <small>Depoimento em breve</small>
+            </div>
+
+            <div
+              class="review-shot review-shot-placeholder review-shot-placeholder--dark"
+              role="img"
+              aria-label="Print do Instagram — depoimento de cliente (em breve)"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+              </svg>
+              <span>Print do Instagram</span>
+              <small>Depoimento em breve</small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =============== FOOTER =============== -->
+    <footer class="site-footer">
+      <div class="footer-banner" aria-hidden="true">
+        <img
+          src="./assets/biblioteca-footer.jpg"
+          alt="Foto de uma biblioteca ao fundo"
+        />
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <div class="footer-brand">
+            <img
+              src="assets/logo-black.png"
+              alt="Casa Maceno"
+              class="logo-img logo-img--light"
+            />
+            <img
+              src="assets/logo.png"
+              alt="Casa Maceno"
+              class="logo-img logo-img--dark"
+            />
+            <span class="logo-text">Casa Maceno</span>
+          </div>
+
+          <div class="footer-info">
+            <p>
+              <strong>Horário de atendimento</strong><br />08h - 20h (Segunda a
+              Sábado)
+            </p>
+            <p class="footer-disclaimer">
+              Desenvolvido por Alura, Projeto Fictício sem fins comerciais
+            </p>
+          </div>
+
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H9v3h2v6h3v-6h3l1-3h-4V9c0-.55.45-1 1-1Z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter" class="social-link">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.2-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.2-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4 4 0 0 1-1.9.1 4.1 4.1 0 0 0 3.9 2.9A8.3 8.3 0 0 1 2 18.6a11.6 11.6 0 0 0 6.3 1.9c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =============== MODAL DE PESQUISA =============== -->
+    <div class="modal search-modal" id="searchModal" aria-hidden="true">
+      <div class="modal-overlay" data-close-search></div>
+      <div
+        class="modal-dialog search-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Pesquisar no site"
+      >
+        <button
+          type="button"
+          class="modal-close"
+          data-close-search
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+        <div class="search-input-wrap">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Pesquisar apostilas, planners, cursos..."
+            autocomplete="off"
+          />
+        </div>
+        <div class="search-results" id="searchResults">
+          <p class="search-empty">
+            Digite para pesquisar apostilas, planners, cursos e mais.
+          </p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- =============== AVALIAÇÕES =============== -->
-  <!-- Seção deixada em branco por enquanto, conforme solicitado. -->
-  <!-- Estrutura pronta para receber os depoimentos reais depois: basta duplicar um .review-card dentro de .grid-3. -->
-  <section class="section reviews" id="avaliacoes" aria-labelledby="avaliacoes-title">
-    <div class="container">
-      <h2 id="avaliacoes-title" class="section-title">Avaliações</h2>
-
-      <div class="grid grid-3 reviews-grid" id="reviewsGrid">
-        <!-- Em breve: depoimentos de clientes -->
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- =============== FOOTER =============== -->
-<footer class="site-footer">
-  <div class="footer-banner" aria-hidden="true">
-    <!-- Substitua por uma imagem real (livro aberto, óculos) quando disponível -->
-  </div>
-
-  <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <div class="footer-brand">
-        <img src="assets/logo-black.png" alt="Casa Maceno" class="logo-img logo-img--light">
-      <img src="assets/logo.png" alt="Casa Maceno" class="logo-img logo-img--dark">
-        <span class="logo-text">Casa Maceno</span>
-      </div>
-
-      <div class="footer-info">
-        <p><strong>Horário de atendimento</strong><br>08h - 20h (Segunda a Sábado)</p>
-        <p class="footer-disclaimer">Desenvolvido por Alura, Projeto Fictício sem fins comerciais</p>
-      </div>
-
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram" class="social-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-        </a>
-        <a href="#" aria-label="Facebook" class="social-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H9v3h2v6h3v-6h3l1-3h-4V9c0-.55.45-1 1-1Z"/></svg>
-        </a>
-        <a href="#" aria-label="Twitter" class="social-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.2-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.2-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4 4 0 0 1-1.9.1 4.1 4.1 0 0 0 3.9 2.9A8.3 8.3 0 0 1 2 18.6a11.6 11.6 0 0 0 6.3 1.9c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1Z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- =============== MODAL "VER DETALHES" =============== -->
-<div class="modal" id="productModal" aria-hidden="true">
-  <div class="modal-overlay" data-close-modal></div>
-  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button type="button" class="modal-close" data-close-modal aria-label="Fechar">&times;</button>
-    <h3 id="modalTitle">Título do produto</h3>
-    <p id="modalText">Descrição do produto. Substitua este texto pelo conteúdo real de cada apostila/produto em js/script.js.</p>
-    <div class="modal-actions">
-      <a id="modalLink" class="btn btn-outline" href="#">Ver mais</a>
-      <button type="button" class="btn btn-primary" data-close-modal>Fechar</button>
-    </div>
-  </div>
-</div>
-
-<!-- =============== MODAL DE PESQUISA =============== -->
-<div class="modal search-modal" id="searchModal" aria-hidden="true">
-  <div class="modal-overlay" data-close-search></div>
-  <div class="modal-dialog search-dialog" role="dialog" aria-modal="true" aria-label="Pesquisar no site">
-    <button type="button" class="modal-close" data-close-search aria-label="Fechar">&times;</button>
-    <div class="search-input-wrap">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input type="text" id="searchInput" placeholder="Pesquisar apostilas, planners, cursos..." autocomplete="off">
-    </div>
-    <div class="search-results" id="searchResults">
-      <p class="search-empty">Digite para pesquisar apostilas, planners, cursos e mais.</p>
-    </div>
-  </div>
-</div>
-
-<script src="js/script.js"></script>
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>
