@@ -1,44 +1,51 @@
 /* ===========================================================
    Casa Maceno — estilos gerais
-   Paleta baseada no protótipo:
-   - Preto/quase-preto: header, footer, cards escuros
-   - Vinho/bordô: botões, detalhes, estrelas
-   - Verde petróleo: cards e mockups de produto
-   - Cinza claro: cards de categoria
+   Paleta "Sala de Aula em Casa" (aprovada em protótipo):
+   - Terracota: header e footer, sempre — cor de marca, fixa nos dois temas
+   - Vermelho-tijolo: botões, links, ações
+   - Azul empoeirado: ícones e destaques secundários
+   - Mostarda: destaques suaves, variação de cor em cards
+   - Creme: fundo da página, no lugar do branco
 =========================================================== */
 
 :root {
-  --color-black: #1a1a1a;
-  --color-black-soft: #232323;
-  --color-maroon: #7a2333;
-  --color-maroon-dark: #5e1a27;
-  --color-teal: #123c40;
-  --color-teal-light: #1b565c;
-  --color-white: #ffffff;
+  --color-ink: #2a1b10;
+  --color-ink-rgb: 42, 27, 16;
+  --color-cream: #fbf3e8;
+
+  --color-brand: #a05a38;
+  --color-accent: #c1502e;
+  --color-accent-dark: #9c3e22;
+  --color-secondary: #5c87a0;
+  --color-secondary-soft: #7fa8bd;
+  --color-tertiary: #d9a441;
 
   --font-heading: "Poppins", "Segoe UI", sans-serif;
   --font-body: "Inter", "Segoe UI", sans-serif;
 
   --max-width: 1180px;
-  --radius: 10px;
+  --radius: 16px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* ---- Tema claro (padrão) ---- */
-  --bg: #ffffff;
-  --bg-alt: #e7e7e7;
-  --bg-alt-border: #d5d5d5;
-  --text: #262626;
-  --text-muted: #5a5a5a;
-  --modal-bg: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.08);
+  --bg: #f7f1e3;
+  --bg-alt: #fffbf2;
+  --bg-alt-border: #e8d9be;
+  --text: #4a3524;
+  --text-muted: #8c7a63;
+  --modal-bg: #fffbf2;
+  --shadow: rgba(74, 53, 36, 0.16);
 
-  /* Header/footer: fundo claro no tema claro, escuro no tema escuro */
-  --header-bg: #ffffff;
-  --header-text: #1a1a1a;
-  --header-text-muted: #5a5a5a;
-  --header-text-dim: #8a8a8a;
-  --header-border: rgba(0, 0, 0, 0.12);
-  --header-hover-bg: rgba(0, 0, 0, 0.06);
+  /* Header/footer: sempre a cor da marca (terracota), fixa nos dois temas */
+  --header-bg: var(--color-brand);
+  --header-text: var(--color-cream);
+  --header-text-muted: rgba(251, 243, 232, 0.78);
+  --header-text-dim: rgba(251, 243, 232, 0.55);
+  --header-border: rgba(251, 243, 232, 0.22);
+  --header-hover-bg: rgba(251, 243, 232, 0.14);
+  /* Cor de destaque só dentro do header/footer (contrasta melhor com o
+     terracota do que o vermelho-tijolo, que é próximo demais em matiz) */
+  --header-highlight: var(--color-tertiary);
 
   /* Informa ao navegador qual esquema de cor a página está usando, para ele
      não tentar "forçar" um modo escuro por cima do nosso toggle manual */
@@ -47,20 +54,21 @@
 
 /* ---- Tema escuro ---- */
 [data-theme="dark"] {
-  --bg: #121212;
-  --bg-alt: #1f1f1f;
-  --bg-alt-border: #333333;
-  --text: #ededed;
-  --text-muted: #b3b3b3;
-  --modal-bg: #1c1c1c;
-  --shadow: rgba(0, 0, 0, 0.35);
+  --bg: #201409;
+  --bg-alt: #2d1d10;
+  --bg-alt-border: #402915;
+  --text: #f3e4ce;
+  --text-muted: #bfa98d;
+  --modal-bg: #2d1d10;
+  --shadow: rgba(0, 0, 0, 0.5);
 
-  --header-bg: var(--color-black);
-  --header-text: #ffffff;
-  --header-text-muted: #cfcfcf;
-  --header-text-dim: #9c9c9c;
-  --header-border: rgba(255, 255, 255, 0.14);
-  --header-hover-bg: rgba(255, 255, 255, 0.1);
+  --color-secondary: #8fb8ce;
+  --color-secondary-soft: #6e9fb6;
+  --color-accent: #dd6a44;
+  --color-accent-dark: #ee8862;
+  --color-tertiary: #e4b65b;
+
+  /* Header/footer continuam terracota — não são redefinidos aqui de propósito */
 
   color-scheme: dark;
 }
@@ -77,9 +85,17 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--text);
-  background: var(--bg);
+  /* Cor sólida + uma textura de papel bem sutil por baixo (ruído gerado via
+     SVG, sem imagem externa), misturadas direto no fundo do body — assim a
+     textura fica atrás de todo o conteúdo, sem depender de z-index. */
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
   line-height: 1.5;
   transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+[data-theme="dark"] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
 }
 
 img {
@@ -93,13 +109,13 @@ a {
 }
 
 ::selection {
-  background: var(--color-maroon);
-  color: var(--color-white);
+  background: var(--color-accent);
+  color: var(--color-cream);
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-maroon);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -149,24 +165,16 @@ ul {
   height: 42px;
 }
 
-/* Duas artes da logo: uma para cada tema, alternadas via [data-theme] */
+/* Header/footer agora são sempre terracota (não trocam mais por tema), então
+   a logo usa sempre a versão clara — o traço preto invertido para ficar
+   creme e visível sobre o terracota, nos dois temas. */
 .logo-img--light {
-  display: block;
+  display: none;
 }
 
 .logo-img--dark {
-  display: none;
-  /* essa arte é um traço preto sobre fundo transparente; invertida para ficar
-     branca e visível sobre o header/footer escuros no tema escuro */
-  filter: invert(1);
-}
-
-[data-theme="dark"] .logo-img--light {
-  display: none;
-}
-
-[data-theme="dark"] .logo-img--dark {
   display: block;
+  filter: invert(1);
 }
 
 .header-actions {
@@ -232,7 +240,7 @@ ul {
 .nav-link:hover,
 .nav-link:focus-visible,
 .nav-link.is-active {
-  color: var(--color-maroon);
+  color: var(--header-highlight);
 }
 
 /* ---- Dropdown "Conteúdos" ---- */
@@ -343,7 +351,7 @@ ul {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.55)),
+    linear-gradient(180deg, rgba(var(--color-ink-rgb), 0.62), rgba(var(--color-ink-rgb), 0.35) 55%, rgba(var(--color-ink-rgb), 0.58)),
     url("../assets/livro-aberto-main-hero-web.jpg");
   background-size: cover;
   background-position: center;
@@ -393,7 +401,7 @@ ul {
   aspect-ratio: 4 / 5;
   border-radius: var(--radius);
   overflow: hidden;
-  color: var(--color-white);
+  color: var(--color-cream);
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
 }
 
@@ -434,9 +442,9 @@ ul {
   margin-top: 6px;
 }
 
-.hero-cover--maroon { background: linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark)); }
-.hero-cover--teal { background: linear-gradient(160deg, var(--color-teal-light), var(--color-teal)); }
-.hero-cover--dark { background: linear-gradient(160deg, #3a2318, var(--color-black) 75%); }
+.hero-cover--maroon { background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark)); }
+.hero-cover--teal { background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary)); }
+.hero-cover--dark { background: linear-gradient(160deg, #3a2318, var(--color-ink) 75%); }
 
 .age-badge {
   position: absolute;
@@ -452,7 +460,7 @@ ul {
   font-weight: 700;
   font-size: 0.78rem;
   line-height: 1.15;
-  color: var(--color-white);
+  color: var(--color-cream);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
   transform: rotate(-8deg);
 }
@@ -465,8 +473,8 @@ ul {
   letter-spacing: 0.03em;
 }
 
-.age-badge--1 { right: -12px; background: var(--color-maroon); }
-.age-badge--2 { left: -12px; background: var(--color-teal); transform: rotate(7deg); }
+.age-badge--1 { right: -12px; background: var(--color-accent); }
+.age-badge--2 { left: -12px; background: var(--color-secondary); transform: rotate(7deg); }
 
 .hero-copy .eyebrow {
   display: block;
@@ -474,13 +482,13 @@ ul {
   font-weight: 700;
   font-size: 0.82rem;
   letter-spacing: 0.03em;
-  color: #e8a5b0;
+  color: #f2c879;
   margin-bottom: 8px;
 }
 
 .hero-copy h1 {
   font-family: var(--font-heading);
-  color: var(--color-white);
+  color: var(--color-cream);
   font-size: 1.5rem;
   line-height: 1.2;
   margin: 0 0 10px;
@@ -509,9 +517,9 @@ ul {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(26, 26, 26, 0.55);
+  background: rgba(var(--color-ink-rgb), 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  color: var(--color-white);
+  color: var(--color-cream);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -520,7 +528,7 @@ ul {
 }
 
 .hero-nav-btn:hover {
-  background: rgba(26, 26, 26, 0.8);
+  background: rgba(var(--color-ink-rgb), 0.8);
 }
 
 .hero-nav-btn svg {
@@ -543,7 +551,7 @@ ul {
   justify-content: center;
   gap: 8px;
   padding: 16px 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(var(--color-ink-rgb), 0.35);
 }
 
 .hero-dots button {
@@ -557,7 +565,7 @@ ul {
 }
 
 .hero-dots button.is-active {
-  background: var(--color-maroon);
+  background: var(--color-accent);
   width: 22px;
   border-radius: 5px;
 }
@@ -582,7 +590,7 @@ ul {
 }
 
 .breadcrumb a:hover {
-  color: var(--color-maroon);
+  color: var(--color-accent);
 }
 
 .page-title {
@@ -644,7 +652,7 @@ ul {
   transform: translateX(-50%);
   width: 46px;
   height: 3px;
-  background: var(--color-maroon);
+  background: var(--color-accent);
   border-radius: 2px;
 }
 
@@ -695,7 +703,7 @@ ul {
   justify-content: flex-end;
   gap: 12px;
   overflow: hidden;
-  color: var(--color-white);
+  color: var(--color-cream);
   background: none;
   border: none;
   font-family: inherit;
@@ -706,7 +714,7 @@ ul {
 
 .feature-card:hover,
 .feature-card:focus-visible {
-  transform: translateY(-3px);
+  transform: translateY(-3px) rotate(-0.5deg);
   box-shadow: 0 10px 24px var(--shadow);
 }
 
@@ -734,7 +742,7 @@ ul {
 
 .feature-card--dark1 {
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1) 60%),
+    linear-gradient(0deg, rgba(var(--color-ink-rgb), 0.82), rgba(var(--color-ink-rgb), 0.08) 60%),
     url("../assets/covers/9-de-janeiro-crop.png");
   background-size: cover;
   background-position: center top;
@@ -742,7 +750,7 @@ ul {
 
 .feature-card--dark2 {
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1) 60%),
+    linear-gradient(0deg, rgba(var(--color-ink-rgb), 0.82), rgba(var(--color-ink-rgb), 0.08) 60%),
     url("../assets/covers/tiradentes-heroi-ou-vilao.png");
   background-size: cover;
   background-position: center;
@@ -750,7 +758,7 @@ ul {
 
 .feature-card--teal {
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1) 60%),
+    linear-gradient(0deg, rgba(var(--color-ink-rgb), 0.82), rgba(var(--color-ink-rgb), 0.08) 60%),
     url("../assets/covers/ouviram-do-ipiringa.png");
   background-size: cover;
   background-position: center top;
@@ -758,7 +766,7 @@ ul {
 
 .feature-card--gray {
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1) 60%),
+    linear-gradient(0deg, rgba(var(--color-ink-rgb), 0.82), rgba(var(--color-ink-rgb), 0.08) 60%),
     url("../assets/covers/15-de-novembro.png");
   background-size: cover;
   background-position: center;
@@ -782,25 +790,25 @@ ul {
 }
 
 .btn-primary {
-  background: var(--color-maroon);
-  color: var(--color-white);
+  background: var(--color-accent);
+  color: var(--color-cream);
 }
 
 .btn-primary:hover {
-  background: var(--color-maroon-dark);
+  background: var(--color-accent-dark);
   transform: translateY(-1px);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-maroon);
-  border: 1.5px solid var(--color-maroon);
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
   align-self: center;
 }
 
 .btn-outline:hover {
-  background: var(--color-maroon);
-  color: var(--color-white);
+  background: var(--color-accent);
+  color: var(--color-cream);
   transform: translateY(-1px);
 }
 
@@ -812,6 +820,7 @@ ul {
 
 /* ===================== CARDS DE CATEGORIA (Apostilas, Planners, etc.) ===================== */
 .card {
+  position: relative;
   background: var(--bg-alt);
   border: 1px solid var(--bg-alt-border);
   border-radius: var(--radius);
@@ -827,7 +836,49 @@ ul {
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px var(--shadow);
-  border-color: var(--color-maroon);
+  border-color: var(--color-accent);
+}
+
+/* Fita washi + leve rotação — só nos cards de prévia da home (não nas
+   páginas de listagem completas, onde teria item demais pra ficar bonito) */
+.card:not(.card--product) {
+  overflow: visible;
+}
+
+.card:not(.card--product)::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 56px;
+  height: 17px;
+  border-radius: 2px;
+  opacity: 0.92;
+  box-shadow: 0 2px 5px rgba(var(--color-ink-rgb), 0.22);
+  background: repeating-linear-gradient(45deg, var(--color-tertiary), var(--color-tertiary) 6px, rgba(255, 255, 255, 0.4) 6px, rgba(255, 255, 255, 0.4) 12px);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.card:not(.card--product):nth-child(3n+2)::before {
+  background: repeating-linear-gradient(45deg, var(--color-secondary-soft), var(--color-secondary-soft) 6px, rgba(255, 255, 255, 0.4) 6px, rgba(255, 255, 255, 0.4) 12px);
+  transform: translateX(-50%) rotate(2.5deg);
+}
+
+.card:not(.card--product):nth-child(3n)::before {
+  background: repeating-linear-gradient(45deg, var(--color-accent), var(--color-accent) 6px, rgba(255, 255, 255, 0.4) 6px, rgba(255, 255, 255, 0.4) 12px);
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.card:not(.card--product):nth-child(odd) {
+  transform: rotate(-0.6deg);
+}
+
+.card:not(.card--product):nth-child(even) {
+  transform: rotate(0.6deg);
+}
+
+.card:not(.card--product):hover {
+  transform: translateY(-4px) rotate(0deg);
 }
 
 .card-icon {
@@ -838,13 +889,13 @@ ul {
   background: var(--bg);
   border: 1px solid var(--bg-alt-border);
   box-shadow: 0 2px 6px var(--shadow);
-  color: var(--color-maroon);
+  color: var(--color-secondary);
   transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
 .card:hover .card-icon {
   transform: scale(1.06);
-  border-color: var(--color-maroon);
+  border-color: var(--color-accent);
 }
 
 .card-desc {
@@ -886,7 +937,7 @@ ul {
   width: 100%;
   max-width: 190px;
   aspect-ratio: 3 / 4;
-  background: linear-gradient(160deg, var(--color-teal-light), var(--color-teal));
+  background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary));
   border-radius: 6px;
   position: relative;
   display: flex;
@@ -924,9 +975,9 @@ ul {
   background-repeat: repeat-y;
 }
 
-.sample-mock--teal { background: linear-gradient(160deg, var(--color-teal-light), var(--color-teal)); }
-.sample-mock--maroon { background: linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark) 75%); }
-.sample-mock--dark { background: linear-gradient(160deg, #3a2318, var(--color-black) 75%); }
+.sample-mock--teal { background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary)); }
+.sample-mock--maroon { background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark) 75%); }
+.sample-mock--dark { background: linear-gradient(160deg, #3a2318, var(--color-ink) 75%); }
 
 /* Selo indicando que o clique abre um PDF em nova aba */
 .sample-mock-badge {
@@ -937,7 +988,7 @@ ul {
   align-items: center;
   gap: 4px;
   background: rgba(255, 255, 255, 0.92);
-  color: var(--color-black);
+  color: var(--color-ink);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.62rem;
@@ -953,7 +1004,7 @@ ul {
 }
 
 .sample-mock-label {
-  color: var(--color-white);
+  color: var(--color-cream);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
@@ -972,7 +1023,7 @@ ul {
 .sample-mock-tab {
   width: 60%;
   height: 26px;
-  background: var(--color-white);
+  background: var(--color-cream);
   border-radius: 999px;
 }
 
@@ -1013,7 +1064,7 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: var(--color-white);
+  color: var(--color-cream);
   text-align: center;
   padding: 20px;
 }
@@ -1034,9 +1085,9 @@ ul {
   opacity: 0.85;
 }
 
-.review-shot-placeholder--maroon { background: linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark) 75%); }
-.review-shot-placeholder--teal { background: linear-gradient(160deg, var(--color-teal-light), var(--color-teal) 75%); }
-.review-shot-placeholder--dark { background: linear-gradient(160deg, #3a2318, var(--color-black) 75%); }
+.review-shot-placeholder--maroon { background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark) 75%); }
+.review-shot-placeholder--teal { background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary) 75%); }
+.review-shot-placeholder--dark { background: linear-gradient(160deg, #3a2318, var(--color-ink) 75%); }
 
 /* ===================== FOOTER ===================== */
 .site-footer {
@@ -1062,7 +1113,7 @@ ul {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(26, 26, 26, 0.15), rgba(26, 26, 26, 0.6));
+  background: linear-gradient(180deg, rgba(var(--color-ink-rgb), 0.15), rgba(var(--color-ink-rgb), 0.6));
   pointer-events: none;
 }
 
@@ -1115,7 +1166,7 @@ ul {
 }
 
 .footer-email:hover {
-  color: var(--color-maroon);
+  color: var(--header-highlight);
 }
 
 .footer-social {
@@ -1131,7 +1182,7 @@ ul {
 }
 
 .social-link:hover {
-  color: var(--color-maroon);
+  color: var(--header-highlight);
 }
 
 .social-link svg {
@@ -1265,7 +1316,7 @@ ul {
 .search-result-category {
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--color-maroon);
+  color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   white-space: nowrap;
@@ -1278,7 +1329,7 @@ ul {
   min-height: 260px;
   padding: 28px 0 26px;
   background:
-    linear-gradient(0deg, rgba(0,0,0,0.78), rgba(0,0,0,0.3) 65%, rgba(0,0,0,0.1)),
+    linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
     linear-gradient(135deg, #cbb994, #8a7451 45%, #4a3f2c);
   background-size: cover;
   background-position: center;
@@ -1286,7 +1337,7 @@ ul {
 
 .product-hero h1 {
   font-family: var(--font-heading);
-  color: var(--color-white);
+  color: var(--color-cream);
   font-size: 1.5rem;
   font-weight: 800;
   margin: 0 0 8px;
@@ -1372,7 +1423,7 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 6px;
-  color: var(--color-white);
+  color: var(--color-cream);
   text-align: center;
   box-shadow: 0 10px 24px var(--shadow);
 }
@@ -1410,15 +1461,15 @@ ul {
 }
 
 .product-cover--maroon {
-  background: linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark) 75%);
+  background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark) 75%);
 }
 
 .product-cover--teal {
-  background: linear-gradient(160deg, var(--color-teal-light), var(--color-teal) 75%);
+  background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary) 75%);
 }
 
 .product-cover--dark {
-  background: linear-gradient(160deg, #3a2318, #1a1a1a 70%);
+  background: linear-gradient(160deg, #3a2318, var(--color-ink) 70%);
 }
 
 .product-block {
@@ -1459,7 +1510,7 @@ ul {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--color-maroon);
+  background: var(--color-accent);
 }
 
 .product-photo {

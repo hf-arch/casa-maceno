@@ -80,21 +80,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // da área dele no meio do arraste — sem isso, um arraste que escapa do
     // elemento podia "perder" o final do gesto e deixar o carrossel travado,
     // sem responder a cliques/arrastos seguintes.
+    //
+    // O captured só é ativado depois que o gesto realmente vira um arraste
+    // (passa de ~6px de movimento) — chamar setPointerCapture direto no
+    // pointerdown faz o navegador redirecionar até o "click" pro heroTrack
+    // em vez do elemento tocado, e os botões "Ver apostilas/Ver Planners/..."
+    // dentro do carrossel paravam de funcionar mesmo num toque simples.
     let dragStartX = 0;
     let dragCurrentX = 0;
     let isDragging = false;
+    let hasCaptured = false;
     let activePointerId = null;
     let trackWidth = 0;
+    const DRAG_START_THRESHOLD = 6;
 
     heroTrack.addEventListener("pointerdown", (e) => {
       if (!e.isPrimary) return;
       isDragging = true;
+      hasCaptured = false;
       activePointerId = e.pointerId;
       dragStartX = e.clientX;
       dragCurrentX = dragStartX;
       trackWidth = heroTrack.getBoundingClientRect().width;
-      heroTrack.style.transition = "none";
-      heroTrack.setPointerCapture(e.pointerId);
       if (heroTimer) clearInterval(heroTimer);
     });
 
@@ -102,6 +109,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isDragging || e.pointerId !== activePointerId) return;
       dragCurrentX = e.clientX;
       const deltaX = dragCurrentX - dragStartX;
+
+      if (!hasCaptured) {
+        if (Math.abs(deltaX) < DRAG_START_THRESHOLD) return;
+        hasCaptured = true;
+        heroTrack.setPointerCapture(e.pointerId);
+        heroTrack.style.transition = "none";
+      }
+
       const basePercent = -heroIndex * 100;
       const dragPercent = (deltaX / trackWidth) * 100;
       heroTrack.style.transform = `translateX(${basePercent + dragPercent}%)`;
@@ -111,6 +126,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isDragging || (e && e.pointerId !== activePointerId)) return;
       isDragging = false;
       activePointerId = null;
+
+      // Não houve arraste de verdade (só um toque/clique) — não mexe no
+      // carrossel e deixa o navegador tratar o clique normalmente.
+      if (!hasCaptured) {
+        heroRestartAutoplay();
+        return;
+      }
+
+      hasCaptured = false;
       heroTrack.style.transition = "";
       const deltaX = dragCurrentX - dragStartX;
       const threshold = trackWidth * 0.12;
@@ -215,6 +239,22 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "15 de Novembro — Golpe da República", category: "História do Brasil", url: "historia-do-brasil/15-de-novembro.html" },
     { title: "Tiradentes — Herói ou vilão?", category: "História do Brasil", url: "historia-do-brasil/tiradentes.html" },
     { title: "Amostras", category: "Categoria", url: "amostras/index.html" },
+    { title: "Amostra: Sabedoria para crianças", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Estudando Poesia, Latim e Caligrafia com Salmos", category: "Amostra", url: "assets/amostras-pdfs/Amostra_Estudando_Poesia_com_Salmos.pdf" },
+    { title: "Amostra: Bandeiras e Bandeirantes", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Segundo Livro de Leitura", category: "Amostra", url: "assets/amostras-pdfs/Amostra_Segundo_Livro_de_Leitura.pdf" },
+    { title: "Amostra: Planner 2025", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Planner 2026", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Planner 2027", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Clube Maravilhamento", category: "Amostra", url: "assets/amostras-pdfs/Amostra_Clube_Maravilhamento_Egito.pdf" },
+    { title: "Amostra: Pais Educadores", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Aprendendo Poesia com Fábulas", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: 13 de Maio", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: O Descobrimento do Brasil", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: 9 de Janeiro — Dia do Fico", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Ouviram do Ipiranga", category: "Amostra", url: "assets/amostras-pdfs/Amostra_Ouviram_do_Ipiranga.pdf" },
+    { title: "Amostra: 15 de Novembro — Golpe da República", category: "Amostra", url: "amostras/index.html" },
+    { title: "Amostra: Tiradentes — Herói ou vilão?", category: "Amostra", url: "amostras/index.html" },
     { title: "Sobre nós", category: "Página", url: "sobre.html" }
   ];
 
@@ -261,6 +301,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const a = document.createElement("a");
         a.className = "search-result";
         a.href = basePrefix + item.url;
+        // PDFs de amostra abrem em nova aba, igual aos cards de amostra no resto do site
+        if (item.url.endsWith(".pdf")) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
         a.innerHTML = `<span class="search-result-title">${item.title}</span><span class="search-result-category">${item.category}</span>`;
         searchResults.appendChild(a);
       });
