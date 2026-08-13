@@ -1285,6 +1285,19 @@ ul {
   box-shadow: 0 10px 24px var(--shadow);
 }
 
+/* Variante com foto real do produto, em vez do bloco de cor + texto */
+.product-cover--photo {
+  padding: 0;
+  aspect-ratio: 4 / 5;
+}
+
+.product-cover--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .product-cover::before {
   content: "";
   position: absolute;
