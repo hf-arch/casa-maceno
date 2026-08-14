@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2e6cd"/>
+      <stop offset="100%" stop-color="#e2cda3"/>
+    </linearGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2.4" fill="#5c87a0" opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <rect width="1600" height="500" fill="url(#dots)"/>
+
+  <!-- mapa/continente estilizado (marca d'agua) -->
+  <path d="M1140,90 C1230,80 1290,150 1270,230 C1310,270 1300,330 1250,350 C1220,400 1150,400 1120,360 C1060,370 1020,320 1040,270 C1000,230 1030,160 1090,150 C1090,110 1110,95 1140,90Z" fill="#d9a441" opacity="0.35"/>
+
+  <!-- globo -->
+  <g transform="translate(1300,300)">
+    <circle r="90" fill="#7fa8bd"/>
+    <ellipse cx="0" cy="0" rx="90" ry="32" fill="none" stroke="#eef0e4" stroke-width="3" opacity="0.7"/>
+    <ellipse cx="0" cy="0" rx="32" ry="90" fill="none" stroke="#eef0e4" stroke-width="3" opacity="0.7"/>
+    <path d="M-60,-40 Q-20,-60 10,-30 Q40,-10 20,30 Q0,60 -40,40 Q-70,10 -60,-40Z" fill="#5c87a0" opacity="0.8"/>
+    <rect x="-10" y="88" width="20" height="46" fill="#a05a38"/>
+    <rect x="-46" y="128" width="92" height="16" rx="6" fill="#a05a38"/>
+  </g>
+
+  <!-- navio -->
+  <g transform="translate(1120,320) scale(0.85)">
+    <path d="M-180,60 L180,60 L140,110 L-140,110 Z" fill="#a05a38"/>
+    <rect x="-10" y="-220" width="14" height="280" fill="#4a3524"/>
+    <rect x="70" y="-160" width="10" height="220" fill="#4a3524"/>
+    <rect x="-90" y="-180" width="10" height="240" fill="#4a3524"/>
+    <path d="M4,-210 C90,-190 110,-120 100,-60 L4,-60Z" fill="#fffbf2" stroke="#e8d9be" stroke-width="3"/>
+    <path d="M-4,-210 C-90,-190 -110,-120 -100,-60 L-4,-60Z" fill="#fbf3e8" stroke="#e8d9be" stroke-width="3"/>
+    <path d="M75,-150 C120,-140 130,-90 125,-50 L75,-50Z" fill="#fffbf2" stroke="#e8d9be" stroke-width="3"/>
+    <path d="M-85,-170 C-130,-155 -140,-100 -132,-55 L-85,-55Z" fill="#fbf3e8" stroke="#e8d9be" stroke-width="3"/>
+    <rect x="-6" y="-224" width="46" height="30" fill="#5c87a0"/>
+    <rect x="-6" y="-224" width="46" height="10" fill="#c1502e"/>
+  </g>
+
+  <!-- livro aberto na base -->
+  <g transform="translate(660,410)">
+    <path d="M0,0 C-100,-24 -190,-16 -215,0 L-215,44 C-190,30 -100,38 0,60 Z" fill="#fffbf2" stroke="#e8d9be" stroke-width="3"/>
+    <path d="M0,0 C100,-24 190,-16 215,0 L215,44 C190,30 100,38 0,60 Z" fill="#fbf3e8" stroke="#e8d9be" stroke-width="3"/>
+    <rect x="-5" y="-22" width="10" height="70" fill="#a05a38"/>
+  </g>
+
+  <g opacity="0.5">
+    <path d="M70 90 Q120 60 160 105 Q110 120 70 90Z" fill="#7fa8bd"/>
+  </g>
+</svg>

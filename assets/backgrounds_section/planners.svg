@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef0e4"/>
+      <stop offset="100%" stop-color="#dfe3d1"/>
+    </linearGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2.4" fill="#5c87a0" opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <rect width="1600" height="500" fill="url(#dots)"/>
+
+  <g opacity="0.5">
+    <path d="M70 420 Q120 390 160 430 Q110 450 70 420Z" fill="#7fa8bd"/>
+    <path d="M1520 420 Q1560 400 1570 440 Q1535 450 1520 420Z" fill="#5c87a0"/>
+  </g>
+
+  <!-- caderno espiral aberto (calendario) -->
+  <g transform="translate(1200,250)">
+    <rect x="-260" y="-160" width="520" height="320" rx="18" fill="#fffbf2" stroke="#e8d9be" stroke-width="4"/>
+    <g fill="none" stroke="#2a1b10" stroke-width="6">
+      <circle cx="-260" cy="-130" r="9"/>
+      <circle cx="-260" cy="-80" r="9"/>
+      <circle cx="-260" cy="-30" r="9"/>
+      <circle cx="-260" cy="20" r="9"/>
+      <circle cx="-260" cy="70" r="9"/>
+      <circle cx="-260" cy="120" r="9"/>
+    </g>
+    <!-- grade do calendario -->
+    <g stroke="#e8d9be" stroke-width="3">
+      <line x1="-190" y1="-90" x2="230" y2="-90"/>
+      <line x1="-190" y1="-30" x2="230" y2="-30"/>
+      <line x1="-190" y1="30" x2="230" y2="30"/>
+      <line x1="-190" y1="90" x2="230" y2="90"/>
+      <line x1="-120" y1="-140" x2="-120" y2="140"/>
+      <line x1="-50" y1="-140" x2="-50" y2="140"/>
+      <line x1="20" y1="-140" x2="20" y2="140"/>
+      <line x1="90" y1="-140" x2="90" y2="140"/>
+      <line x1="160" y1="-140" x2="160" y2="140"/>
+    </g>
+    <rect x="-155" y="-125" width="50" height="30" rx="6" fill="#c1502e" opacity="0.85"/>
+    <rect x="55" y="-5" width="50" height="30" rx="6" fill="#d9a441" opacity="0.9"/>
+    <path d="M-105,45 l14,16 l26,-32" stroke="#5c87a0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- caneta -->
+  <g transform="translate(1500,340) rotate(-30)">
+    <rect x="-12" y="0" width="24" height="200" rx="10" fill="#a05a38"/>
+    <polygon points="-12,0 12,0 0,-30" fill="#d9a441"/>
+    <rect x="-12" y="120" width="24" height="18" fill="#fffbf2"/>
+  </g>
+
+  <!-- planta -->
+  <g transform="translate(190,190)">
+    <rect x="-40" y="60" width="80" height="70" rx="10" fill="#fffbf2" stroke="#e8d9be" stroke-width="3"/>
+    <path d="M0,60 C-40,20 -50,-30 0,-70 C50,-30 40,20 0,60Z" fill="#5c87a0"/>
+    <path d="M0,60 C-20,30 -25,-10 0,-40" stroke="#eef0e4" stroke-width="4" fill="none"/>
+  </g>
+</svg>

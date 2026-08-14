@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0e6da"/>
+      <stop offset="100%" stop-color="#dfd0ba"/>
+    </linearGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2.4" fill="#5c87a0" opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <rect width="1600" height="500" fill="url(#dots)"/>
+
+  <g opacity="0.5">
+    <path d="M80 60 Q130 30 170 75 Q120 90 80 60Z" fill="#7fa8bd"/>
+    <path d="M1500 420 Q1550 400 1560 440 Q1525 450 1500 420Z" fill="#5c87a0"/>
+  </g>
+
+  <!-- notebook -->
+  <g transform="translate(1180,290)">
+    <path d="M-260,-40 L260,-40 L260,90 L-260,90 Z" fill="#a05a38"/>
+    <rect x="-230" y="-190" width="460" height="150" rx="14" fill="#4a3524"/>
+    <rect x="-208" y="-170" width="416" height="112" rx="6" fill="#2a1b10"/>
+    <polygon points="-30,-114 -30,-46 40,-80" fill="#d9a441"/>
+    <path d="M-280,90 L280,90 L300,120 L-300,120 Z" fill="#8c6a4a"/>
+  </g>
+
+  <!-- fones de ouvido -->
+  <g transform="translate(870,300)">
+    <path d="M-100,0 A100,100 0 0 1 100,0" fill="none" stroke="#c1502e" stroke-width="16" stroke-linecap="round"/>
+    <rect x="-125" y="-8" width="46" height="70" rx="20" fill="#c1502e"/>
+    <rect x="79" y="-8" width="46" height="70" rx="20" fill="#9c3e22"/>
+  </g>
+</svg>

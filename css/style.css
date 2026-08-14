@@ -1384,6 +1384,35 @@ ul {
   }
 }
 
+/* Fotos de fundo por categoria */
+.product-hero--apostilas {
+  background-image:
+    linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
+    url("../assets/backgrounds_section/apostilas.svg");
+  background-position: left center;
+}
+
+.product-hero--planners {
+  background-image:
+    linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
+    url("../assets/backgrounds_section/planners.svg");
+  background-position: left center;
+}
+
+.product-hero--cursos {
+  background-image:
+    linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
+    url("../assets/backgrounds_section/cursos.svg");
+  background-position: left center;
+}
+
+.product-hero--historia {
+  background-image:
+    linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
+    url("../assets/backgrounds_section/historia-do-brasil.svg");
+  background-position: left center;
+}
+
 .product-page {
   padding: 34px 20px 60px;
 }
