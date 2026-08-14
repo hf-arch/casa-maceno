@@ -942,6 +942,29 @@ ul {
   height: 100%;
 }
 
+/* Miniatura de capa real, usada no lugar do ícone genérico quando o
+   produto já tem uma foto/arte de capa disponível */
+.card-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: calc(var(--radius) - 6px);
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s var(--ease);
+}
+
+.card:hover .card-cover img {
+  transform: scale(1.05);
+}
+
 .card h3 {
   margin: 0;
   font-family: var(--font-heading);
@@ -1001,6 +1024,35 @@ ul {
 .sample-mock--teal { background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary)); }
 .sample-mock--maroon { background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark) 75%); }
 .sample-mock--dark { background: linear-gradient(160deg, #3a2318, var(--color-ink) 75%); }
+
+/* Variante com a capa real do material, usada quando já existe a amostra
+   em PDF e a arte de capa correspondente */
+.sample-mock--photo {
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+}
+
+.sample-mock--photo::before {
+  content: none;
+}
+
+.sample-mock--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(0deg, rgba(var(--color-ink-rgb), 0.88), rgba(var(--color-ink-rgb), 0.05) 55%);
+}
+
+.sample-mock--photo .sample-mock-badge,
+.sample-mock--photo .sample-mock-label,
+.sample-mock--photo .sample-mock-sub,
+.sample-mock--photo .sample-mock-tab {
+  position: relative;
+  z-index: 1;
+}
 
 /* Selo indicando que o clique abre um PDF em nova aba */
 .sample-mock-badge {
