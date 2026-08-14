@@ -177,6 +177,13 @@ ul {
   filter: invert(1);
 }
 
+/* Teste: variante da logo nova (emblema colorido), sem invert de cor */
+.logo-img--color {
+  display: block;
+  width: 52px;
+  height: 52px;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -352,7 +359,7 @@ ul {
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(var(--color-ink-rgb), 0.62), rgba(var(--color-ink-rgb), 0.35) 55%, rgba(var(--color-ink-rgb), 0.58)),
-    url("../assets/pai_ensinando_filho.jpg");
+    url("../assets/mae_ensinando_filho.jpg");
   background-size: cover;
   background-position: center;
 }
