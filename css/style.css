@@ -352,7 +352,7 @@ ul {
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(var(--color-ink-rgb), 0.62), rgba(var(--color-ink-rgb), 0.35) 55%, rgba(var(--color-ink-rgb), 0.58)),
-    url("../assets/livro-aberto-main-hero-web.jpg");
+    url("../assets/pai_ensinando_filho.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -540,9 +540,25 @@ ul {
 .hero-next { right: 16px; }
 
 @media (max-width: 859px) {
-  /* Sem as capas ao lado, o texto ocupa a largura toda: as setas ficam só nos telões */
+  /* No mobile as setas ficam menores, mais coladas na borda — sem capas ao
+     lado pra disputar espaço, mas o texto do slide ganha um respiro nas
+     laterais pra não ficar por baixo delas */
   .hero-nav-btn {
-    display: none;
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-nav-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hero-prev { left: 8px; }
+  .hero-next { right: 8px; }
+
+  .hero-slide {
+    padding-left: 44px;
+    padding-right: 44px;
   }
 }
 
