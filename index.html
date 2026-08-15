@@ -837,12 +837,21 @@
       </section>
 
       <!-- =============== AVALIAÇÕES =============== -->
-      <!-- Espaço só de visualização para prints do Instagram de clientes elogiando a loja. -->
-      <!-- Para trocar um placeholder por um print real:
-           1. Salve a imagem em assets/avaliacoes/ (crie a pasta se ainda não existir).
-           2. Troque o bloco <div class="review-shot review-shot-placeholder ...">...</div>
-              por: <div class="review-shot"><img src="assets/avaliacoes/nome-do-print.png" alt="Print do Instagram: depoimento de @cliente sobre a Casa Maceno"></div>
-           3. Para adicionar mais prints, duplique o bloco <div class="review-shot">...</div> dentro do .grid-3. -->
+      <!-- Mural de depoimentos reais (prints inteiros do WhatsApp/Instagram,
+           nunca cortados fisicamente — só escondemos visualmente o
+           cabeçalho/rodapé do app via --crop-top/--crop-bottom).
+
+           Para adicionar um novo depoimento:
+           1. Salve o print (inteiro, sem cortar) em assets/avaliacoes/.
+           2. Duplique um <button class="review-card">...</button> abaixo.
+           3. Preencha data-name / data-origin (usados no lightbox) e o
+              nome/origem visíveis no cabeçalho do card.
+           4. Em .review-shot-frame, ajuste:
+              --nat-w / --nat-h = largura/altura reais do arquivo (em px).
+              --crop-top = quantos px do topo esconder (cabeçalho do app).
+              --crop-bottom = quantos px da base esconder (campo de digitar).
+              Se o print já vier só com a conversa (ex: resposta de story do
+              Instagram), deixe --crop-top e --crop-bottom em 0. -->
       <section
         class="section reviews"
         id="avaliacoes"
@@ -850,96 +859,103 @@
       >
         <div class="container">
           <h2 id="avaliacoes-title" class="section-title">Avaliações</h2>
+          <p class="section-subtitle">Mensagens reais de famílias que já usam os materiais — direto do WhatsApp e do Instagram.</p>
 
-          <div class="grid grid-3 reviews-grid" id="reviewsGrid">
-            <div
-              class="review-shot review-shot-placeholder review-shot-placeholder--maroon"
-              role="img"
-              aria-label="Print do Instagram — depoimento de cliente (em breve)"
+          <div class="reviews-masonry" id="reviewsMasonry">
+            <button
+              type="button"
+              class="review-card"
+              data-name="Mary"
+              data-origin="WhatsApp"
+              data-full="assets/avaliacoes/img_avaliacao_mary.jpg"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                aria-hidden="true"
-              >
-                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle
-                  cx="17.2"
-                  cy="6.8"
-                  r="0.6"
-                  fill="currentColor"
-                  stroke="none"
-                />
-              </svg>
-              <span>Print do Instagram</span>
-              <small>Depoimento em breve</small>
-            </div>
+              <span class="review-card-head">
+                <span class="review-card-id">
+                  <span class="review-name">Mary</span>
+                  <span class="review-origin">WhatsApp</span>
+                </span>
+              </span>
+              <span class="review-shot-frame" style="--nat-w:590;--nat-h:1280;--crop-top:180;--crop-bottom:171">
+                <img src="assets/avaliacoes/img_avaliacao_mary.jpg" alt="Depoimento de Mary sobre os materiais Casa Maceno" loading="lazy" />
+              </span>
+            </button>
 
-            <div
-              class="review-shot review-shot-placeholder review-shot-placeholder--teal"
-              role="img"
-              aria-label="Print do Instagram — depoimento de cliente (em breve)"
+            <button
+              type="button"
+              class="review-card"
+              data-name="Mãe educadora"
+              data-origin="Instagram"
+              data-full="assets/avaliacoes/img_avaliacao_mae_educa.jpg"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                aria-hidden="true"
-              >
-                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle
-                  cx="17.2"
-                  cy="6.8"
-                  r="0.6"
-                  fill="currentColor"
-                  stroke="none"
-                />
-              </svg>
-              <span>Print do Instagram</span>
-              <small>Depoimento em breve</small>
-            </div>
+              <span class="review-card-head">
+                <span class="review-card-id">
+                  <span class="review-name">Mãe educadora</span>
+                  <span class="review-origin">Instagram</span>
+                </span>
+              </span>
+              <span class="review-shot-frame" style="--nat-w:1146;--nat-h:1280;--crop-top:0;--crop-bottom:0">
+                <img src="assets/avaliacoes/img_avaliacao_mae_educa.jpg" alt="Depoimento de mãe educadora sobre os materiais Casa Maceno" loading="lazy" />
+              </span>
+            </button>
 
-            <div
-              class="review-shot review-shot-placeholder review-shot-placeholder--dark"
-              role="img"
-              aria-label="Print do Instagram — depoimento de cliente (em breve)"
+            <button
+              type="button"
+              class="review-card"
+              data-name="Rafa"
+              data-origin="WhatsApp"
+              data-full="assets/avaliacoes/img_avaliacao_rafa.jpg"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                aria-hidden="true"
-              >
-                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle
-                  cx="17.2"
-                  cy="6.8"
-                  r="0.6"
-                  fill="currentColor"
-                  stroke="none"
-                />
-              </svg>
-              <span>Print do Instagram</span>
-              <small>Depoimento em breve</small>
-            </div>
+              <span class="review-card-head">
+                <span class="review-card-id">
+                  <span class="review-name">Rafa</span>
+                  <span class="review-origin">WhatsApp</span>
+                </span>
+              </span>
+              <span class="review-shot-frame" style="--nat-w:590;--nat-h:1280;--crop-top:180;--crop-bottom:415">
+                <img src="assets/avaliacoes/img_avaliacao_rafa.jpg" alt="Depoimento de Rafa sobre os materiais Casa Maceno" loading="lazy" />
+              </span>
+            </button>
+
+            <button
+              type="button"
+              class="review-card"
+              data-name="Márcia"
+              data-origin="Instagram"
+              data-full="assets/avaliacoes/img_avaliacao_marcia_e.jpg"
+            >
+              <span class="review-card-head">
+                <span class="review-card-id">
+                  <span class="review-name">Márcia</span>
+                  <span class="review-origin">Instagram</span>
+                </span>
+              </span>
+              <span class="review-shot-frame" style="--nat-w:1179;--nat-h:1256;--crop-top:0;--crop-bottom:0">
+                <img src="assets/avaliacoes/img_avaliacao_marcia_e.jpg" alt="Depoimento de Márcia sobre os materiais Casa Maceno" loading="lazy" />
+              </span>
+            </button>
           </div>
         </div>
       </section>
+
+      <!-- Lightbox: abre o print original completo, sem nenhum recorte -->
+      <div class="modal review-lightbox" id="reviewLightbox" aria-hidden="true">
+        <div class="modal-overlay" data-close-review></div>
+        <div class="modal-dialog review-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Print completo do depoimento">
+          <button type="button" class="modal-close" data-close-review aria-label="Fechar">&times;</button>
+          <img id="reviewLightboxImg" src="" alt="" />
+          <p class="review-lightbox-caption">
+            <strong id="reviewLightboxName"></strong> — <span id="reviewLightboxOrigin"></span>
+          </p>
+        </div>
+      </div>
     </main>
 
     <!-- =============== FOOTER =============== -->
     <footer class="site-footer">
       <div class="footer-banner" aria-hidden="true">
         <img
-          src="./assets/biblioteca-footer.jpg"
-          alt="Foto de uma biblioteca ao fundo"
+          src="./assets/lib_footer.jpeg"
+          alt="Material Casa Maceno sendo retirado da estante"
         />
       </div>
 

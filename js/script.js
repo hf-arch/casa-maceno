@@ -346,6 +346,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ---------- 3b. LIGHTBOX DE DEPOIMENTOS (Avaliações) ---------- */
+  const reviewCards = document.querySelectorAll(".review-card");
+  const reviewLightbox = document.getElementById("reviewLightbox");
+  const reviewLightboxImg = document.getElementById("reviewLightboxImg");
+  const reviewLightboxName = document.getElementById("reviewLightboxName");
+  const reviewLightboxOrigin = document.getElementById("reviewLightboxOrigin");
+
+  if (reviewCards.length && reviewLightbox && reviewLightboxImg) {
+    function openReviewLightbox(card) {
+      reviewLightboxImg.src = card.dataset.full;
+      reviewLightboxImg.alt = `Print completo do depoimento de ${card.dataset.name}`;
+      reviewLightboxName.textContent = card.dataset.name;
+      reviewLightboxOrigin.textContent = card.dataset.origin;
+      reviewLightbox.classList.add("is-open");
+      reviewLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeReviewLightbox() {
+      reviewLightbox.classList.remove("is-open");
+      reviewLightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      reviewLightboxImg.src = "";
+    }
+
+    reviewCards.forEach((card) => {
+      card.addEventListener("click", () => openReviewLightbox(card));
+    });
+
+    reviewLightbox.querySelectorAll("[data-close-review]").forEach((el) => {
+      el.addEventListener("click", closeReviewLightbox);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && reviewLightbox.classList.contains("is-open")) closeReviewLightbox();
+    });
+  }
+
   /* ---------- 4. LINK ATIVO NO MENU CONFORME SCROLL ---------- */
   // Só mexe em links que são âncoras da própria página (href começando com "#").
   // Links para outras páginas (ex: "apostilas.html") já vêm com a classe "is-active"
