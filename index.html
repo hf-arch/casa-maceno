@@ -861,6 +861,12 @@
           <h2 id="avaliacoes-title" class="section-title">Avaliações</h2>
           <p class="section-subtitle">Mensagens reais de famílias que já usam os materiais — direto do WhatsApp e do Instagram.</p>
 
+          <!-- Indicadores do carrossel — só aparecem no celular (ver
+               media query no CSS), onde os depoimentos viram um slide por
+               vez em vez do mural Masonry. Preenchidos via JS. -->
+          <div class="reviews-dots" id="reviewsDots" aria-hidden="true"></div>
+
+          <div class="reviews-viewport" id="reviewsViewport">
           <div class="reviews-masonry" id="reviewsMasonry">
             <button
               type="button"
@@ -932,6 +938,17 @@
               <span class="review-shot-frame" style="--nat-w:1179;--nat-h:1256;--crop-top:0;--crop-bottom:0">
                 <img src="assets/avaliacoes/img_avaliacao_marcia_e.jpg" alt="Depoimento de Márcia sobre os materiais Casa Maceno" loading="lazy" />
               </span>
+            </button>
+          </div>
+          </div>
+
+          <!-- Setas — mesma regra: só visíveis no celular -->
+          <div class="reviews-arrows" id="reviewsArrows" aria-hidden="true">
+            <button type="button" class="reviews-arrow reviews-prev" id="reviewsPrev" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button type="button" class="reviews-arrow reviews-next" id="reviewsNext" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
             </button>
           </div>
         </div>

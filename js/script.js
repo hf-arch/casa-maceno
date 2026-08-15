@@ -384,6 +384,99 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ---------- 3c. CARROSSEL DE DEPOIMENTOS (só ativo no celular — no
+     desktop/tablet a seção continua em mural Masonry, sem slide) ---------- */
+  const reviewsViewport = document.getElementById("reviewsViewport");
+  const reviewsTrack = document.getElementById("reviewsMasonry");
+  const reviewsDotsWrap = document.getElementById("reviewsDots");
+  const reviewsPrevBtn = document.getElementById("reviewsPrev");
+  const reviewsNextBtn = document.getElementById("reviewsNext");
+
+  if (reviewsViewport && reviewsTrack && reviewsDotsWrap && reviewsPrevBtn && reviewsNextBtn) {
+    const reviewSlides = Array.from(reviewsTrack.querySelectorAll(".review-card"));
+    const reviewsMobileQuery = window.matchMedia("(max-width: 620px)");
+    let reviewIndex = 0;
+
+    reviewSlides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Ir para o depoimento ${i + 1}`);
+      dot.addEventListener("click", () => reviewsGoTo(i));
+      reviewsDotsWrap.appendChild(dot);
+    });
+    const reviewDots = Array.from(reviewsDotsWrap.children);
+
+    function reviewsRender() {
+      reviewsTrack.style.transform = reviewsMobileQuery.matches ? `translateX(-${reviewIndex * 100}%)` : "";
+      reviewDots.forEach((dot, i) => dot.classList.toggle("is-active", i === reviewIndex));
+    }
+
+    function reviewsGoTo(i) {
+      reviewIndex = (i + reviewSlides.length) % reviewSlides.length;
+      reviewsRender();
+    }
+
+    reviewsPrevBtn.addEventListener("click", () => reviewsGoTo(reviewIndex - 1));
+    reviewsNextBtn.addEventListener("click", () => reviewsGoTo(reviewIndex + 1));
+    reviewsMobileQuery.addEventListener("change", reviewsRender);
+
+    // Swipe/drag — mesma lógica (e mesma correção de clique x arraste) do
+    // carrossel principal do hero: só captura o ponteiro depois de um
+    // deslocamento mínimo, senão um toque simples vira "arraste" e o clique
+    // no card (que abre o lightbox) para de funcionar.
+    let dragStartX = 0;
+    let dragCurrentX = 0;
+    let isDragging = false;
+    let hasCaptured = false;
+    let activePointerId = null;
+    let trackWidth = 0;
+    const DRAG_THRESHOLD = 6;
+
+    reviewsTrack.addEventListener("pointerdown", (e) => {
+      if (!reviewsMobileQuery.matches || !e.isPrimary) return;
+      isDragging = true;
+      hasCaptured = false;
+      activePointerId = e.pointerId;
+      dragStartX = e.clientX;
+      dragCurrentX = dragStartX;
+      trackWidth = reviewsViewport.getBoundingClientRect().width;
+    });
+
+    reviewsTrack.addEventListener("pointermove", (e) => {
+      if (!isDragging || e.pointerId !== activePointerId) return;
+      dragCurrentX = e.clientX;
+      const deltaX = dragCurrentX - dragStartX;
+      if (!hasCaptured) {
+        if (Math.abs(deltaX) < DRAG_THRESHOLD) return;
+        hasCaptured = true;
+        reviewsTrack.setPointerCapture(e.pointerId);
+        reviewsTrack.style.transition = "none";
+      }
+      const basePercent = -reviewIndex * 100;
+      const dragPercent = (deltaX / trackWidth) * 100;
+      reviewsTrack.style.transform = `translateX(${basePercent + dragPercent}%)`;
+    });
+
+    function reviewsEndDrag(e) {
+      if (!isDragging || (e && e.pointerId !== activePointerId)) return;
+      isDragging = false;
+      activePointerId = null;
+      if (!hasCaptured) return;
+      hasCaptured = false;
+      reviewsTrack.style.transition = "";
+      const deltaX = dragCurrentX - dragStartX;
+      const threshold = trackWidth * 0.15;
+      if (deltaX > threshold) reviewsGoTo(reviewIndex - 1);
+      else if (deltaX < -threshold) reviewsGoTo(reviewIndex + 1);
+      else reviewsRender();
+    }
+
+    reviewsTrack.addEventListener("pointerup", reviewsEndDrag);
+    reviewsTrack.addEventListener("pointercancel", reviewsEndDrag);
+
+    reviewsRender();
+  }
+
   /* ---------- 4. LINK ATIVO NO MENU CONFORME SCROLL ---------- */
   // Só mexe em links que são âncoras da própria página (href começando com "#").
   // Links para outras páginas (ex: "apostilas.html") já vêm com a classe "is-active"
