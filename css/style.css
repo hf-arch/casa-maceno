@@ -1142,12 +1142,33 @@ ul {
   margin-bottom: 10px;
 }
 
-.review-avatar {
-  width: 34px;
-  height: 34px;
+.review-avatar,
+.review-avatar-placeholder {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  object-fit: cover;
   flex-shrink: 0;
+}
+
+.review-avatar {
+  object-fit: cover;
+  display: block;
+}
+
+/* Espaço reservado pro avatar real de cada depoente — ver comentário no
+   HTML de como trocar pela foto quando ela existir. */
+.review-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: 1px solid var(--bg-alt-border);
+  color: var(--text-muted);
+}
+
+.review-avatar-placeholder svg {
+  width: 22px;
+  height: 22px;
 }
 
 .review-card-id {

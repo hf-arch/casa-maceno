@@ -851,7 +851,14 @@
               --crop-top = quantos px do topo esconder (cabeçalho do app).
               --crop-bottom = quantos px da base esconder (campo de digitar).
               Se o print já vier só com a conversa (ex: resposta de story do
-              Instagram), deixe --crop-top e --crop-bottom em 0. -->
+              Instagram), deixe --crop-top e --crop-bottom em 0.
+
+           Avatar (foto da pessoa, opcional):
+           Por padrão cada card mostra um círculo placeholder
+           (<span class="review-avatar-placeholder">). Quando tiver a foto
+           real, salve em assets/avaliacoes/avatars/nome-da-pessoa.jpg e
+           troque esse <span> por:
+           <img class="review-avatar" src="assets/avaliacoes/avatars/nome-da-pessoa.jpg" alt="Nome da pessoa"> -->
       <section
         class="section reviews"
         id="avaliacoes"
@@ -876,12 +883,15 @@
               data-full="assets/avaliacoes/img_avaliacao_mary.jpg"
             >
               <span class="review-card-head">
+                <span class="review-avatar-placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
+                </span>
                 <span class="review-card-id">
                   <span class="review-name">Mary</span>
                   <span class="review-origin">WhatsApp</span>
                 </span>
               </span>
-              <span class="review-shot-frame" style="--nat-w:590;--nat-h:1280;--crop-top:180;--crop-bottom:171">
+              <span class="review-shot-frame" style="--nat-w:437;--nat-h:814;--crop-top:0;--crop-bottom:0">
                 <img src="assets/avaliacoes/img_avaliacao_mary.jpg" alt="Depoimento de Mary sobre os materiais Casa Maceno" loading="lazy" />
               </span>
             </button>
@@ -894,6 +904,9 @@
               data-full="assets/avaliacoes/img_avaliacao_mae_educa.jpg"
             >
               <span class="review-card-head">
+                <span class="review-avatar-placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
+                </span>
                 <span class="review-card-id">
                   <span class="review-name">Mãe educadora</span>
                   <span class="review-origin">Instagram</span>
@@ -912,12 +925,15 @@
               data-full="assets/avaliacoes/img_avaliacao_rafa.jpg"
             >
               <span class="review-card-head">
+                <span class="review-avatar-placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
+                </span>
                 <span class="review-card-id">
                   <span class="review-name">Rafa</span>
                   <span class="review-origin">WhatsApp</span>
                 </span>
               </span>
-              <span class="review-shot-frame" style="--nat-w:590;--nat-h:1280;--crop-top:180;--crop-bottom:415">
+              <span class="review-shot-frame" style="--nat-w:430;--nat-h:670;--crop-top:0;--crop-bottom:0">
                 <img src="assets/avaliacoes/img_avaliacao_rafa.jpg" alt="Depoimento de Rafa sobre os materiais Casa Maceno" loading="lazy" />
               </span>
             </button>
@@ -930,6 +946,9 @@
               data-full="assets/avaliacoes/img_avaliacao_marcia_e.jpg"
             >
               <span class="review-card-head">
+                <span class="review-avatar-placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
+                </span>
                 <span class="review-card-id">
                   <span class="review-name">Márcia</span>
                   <span class="review-origin">Instagram</span>
