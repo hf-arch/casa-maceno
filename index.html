@@ -866,7 +866,11 @@
            (<span class="review-avatar-placeholder">). Quando tiver a foto
            real, salve em assets/avaliacoes/avatars/nome-da-pessoa.jpg e
            troque esse <span> por:
-           <img class="review-avatar" src="assets/avaliacoes/avatars/nome-da-pessoa.jpg" alt="Nome da pessoa"> -->
+           <span class="review-avatar-wrap"><img class="review-avatar" src="assets/avaliacoes/avatars/nome-da-pessoa.jpg" alt="Nome da pessoa"></span>
+           Se a foto já vier com moldura/borda "assada" nela (comum em
+           foto de perfil exportada do WhatsApp/Instagram), adicione
+           style="--avatar-zoom: 1.4" (ajuste o número) na <img> pra
+           aproximar o suficiente e esconder essa borda. -->
       <section
         class="section reviews"
         id="avaliacoes"
@@ -891,9 +895,7 @@
               data-full="assets/avaliacoes/img_avaliacao_mary.jpg"
             >
               <span class="review-card-head">
-                <span class="review-avatar-placeholder" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
-                </span>
+                <span class="review-avatar-wrap"><img class="review-avatar" src="assets/avaliacoes/avatars/img_avaliacao_avatar_mary.jpg" alt="Mary" /></span>
                 <span class="review-card-id">
                   <span class="review-name">Mary</span>
                   <span class="review-origin">WhatsApp</span>
@@ -907,21 +909,19 @@
             <button
               type="button"
               class="review-card"
-              data-name="Mãe educadora"
+              data-name="Marta"
               data-origin="Instagram"
               data-full="assets/avaliacoes/img_avaliacao_mae_educa.jpg"
             >
               <span class="review-card-head">
-                <span class="review-avatar-placeholder" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
-                </span>
+                <span class="review-avatar-wrap"><img class="review-avatar" style="--avatar-zoom: 1.45" src="assets/avaliacoes/avatars/img_avaliacao_avatar_marta.jpg" alt="Marta" /></span>
                 <span class="review-card-id">
-                  <span class="review-name">Mãe educadora</span>
+                  <span class="review-name">Marta</span>
                   <span class="review-origin">Instagram</span>
                 </span>
               </span>
               <span class="review-shot-frame" style="--nat-w:1146;--nat-h:1280;--crop-top:0;--crop-bottom:0">
-                <img src="assets/avaliacoes/img_avaliacao_mae_educa.jpg" alt="Depoimento de mãe educadora sobre os materiais Casa Maceno" loading="lazy" />
+                <img src="assets/avaliacoes/img_avaliacao_mae_educa.jpg" alt="Depoimento de Marta sobre os materiais Casa Maceno" loading="lazy" />
               </span>
             </button>
 
@@ -933,9 +933,7 @@
               data-full="assets/avaliacoes/img_avaliacao_rafa.jpg"
             >
               <span class="review-card-head">
-                <span class="review-avatar-placeholder" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
-                </span>
+                <span class="review-avatar-wrap"><img class="review-avatar" src="assets/avaliacoes/avatars/img_avaliacao_avatar_rafa.jpg" alt="Rafa" /></span>
                 <span class="review-card-id">
                   <span class="review-name">Rafa</span>
                   <span class="review-origin">WhatsApp</span>
@@ -954,9 +952,7 @@
               data-full="assets/avaliacoes/img_avaliacao_marcia_e.jpg"
             >
               <span class="review-card-head">
-                <span class="review-avatar-placeholder" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/></svg>
-                </span>
+                <span class="review-avatar-wrap"><img class="review-avatar" style="--avatar-zoom: 1.45" src="assets/avaliacoes/avatars/img_avaliacao_avatar_marcia.jpg" alt="Márcia" /></span>
                 <span class="review-card-id">
                   <span class="review-name">Márcia</span>
                   <span class="review-origin">Instagram</span>
@@ -964,6 +960,25 @@
               </span>
               <span class="review-shot-frame" style="--nat-w:1179;--nat-h:1256;--crop-top:0;--crop-bottom:0">
                 <img src="assets/avaliacoes/img_avaliacao_marcia_e.jpg" alt="Depoimento de Márcia sobre os materiais Casa Maceno" loading="lazy" />
+              </span>
+            </button>
+
+            <button
+              type="button"
+              class="review-card"
+              data-name="Educação Graciosa"
+              data-origin="Instagram"
+              data-full="assets/avaliacoes/img_avaliacao_educacao_graciosa.jpg"
+            >
+              <span class="review-card-head">
+                <span class="review-avatar-wrap"><img class="review-avatar" style="--avatar-zoom: 1.4" src="assets/avaliacoes/avatars/img_avaliacao_avatar_educacao_graciosa.jpg" alt="Educação Graciosa" /></span>
+                <span class="review-card-id">
+                  <span class="review-name">Educação Graciosa</span>
+                  <span class="review-origin">Instagram</span>
+                </span>
+              </span>
+              <span class="review-shot-frame" style="--nat-w:327;--nat-h:111;--crop-top:0;--crop-bottom:0">
+                <img src="assets/avaliacoes/img_avaliacao_educacao_graciosa.jpg" alt="Depoimento de Educação Graciosa sobre os materiais Casa Maceno" loading="lazy" />
               </span>
             </button>
           </div>

@@ -1142,7 +1142,7 @@ ul {
   margin-bottom: 10px;
 }
 
-.review-avatar,
+.review-avatar-wrap,
 .review-avatar-placeholder {
   width: 44px;
   height: 44px;
@@ -1150,9 +1150,22 @@ ul {
   flex-shrink: 0;
 }
 
+/* Molde que recorta o avatar em círculo. Ficou separado da <img> porque
+   algumas fotos (ex: perfil do WhatsApp) já vêm com uma moldura circular
+   "assada" na própria imagem, com cantos escuros sobrando ao redor — o
+   overflow:hidden aqui esconde esses cantos, e o --avatar-zoom (na img)
+   aproxima o suficiente pra sumir com a moldura/borda original também. */
+.review-avatar-wrap {
+  overflow: hidden;
+  background: var(--bg);
+}
+
 .review-avatar {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transform: scale(var(--avatar-zoom, 1));
 }
 
 /* Espaço reservado pro avatar real de cada depoente — ver comentário no
@@ -1797,13 +1810,6 @@ ul {
   height: 5px;
   border-radius: 50%;
   background: var(--color-accent);
-}
-
-.product-photo {
-  border-radius: var(--radius);
-  aspect-ratio: 16 / 9;
-  margin-bottom: 32px;
-  background: linear-gradient(135deg, #cbb994, #8a7451 45%, #4a3f2c);
 }
 
 /* ===================== SOBRE NÓS ===================== */
