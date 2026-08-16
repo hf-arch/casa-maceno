@@ -215,6 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "Sabedoria para crianças", category: "Apostilas", url: "apostilas/sabedoria-para-criancas.html" },
     { title: "Estudando Poesia, Latim e Caligrafia com Salmos", category: "Apostilas", url: "apostilas/poesia-latim-caligrafia.html" },
     { title: "Bandeiras e Bandeirantes", category: "Apostilas", url: "apostilas/bandeiras-e-bandeirantes.html" },
+    { title: "Segundo Livro de Leitura", category: "Apostilas", url: "apostilas/segundo-livro-de-leitura.html" },
     { title: "Todas as Apostilas", category: "Categoria", url: "apostilas/index.html" },
     { title: "Planner 2025", category: "Planners", url: "planners/2025.html" },
     { title: "Planner 2026", category: "Planners", url: "planners/2026.html" },

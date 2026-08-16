@@ -782,7 +782,7 @@ ul {
 .feature-card--teal {
   background:
     linear-gradient(0deg, rgba(var(--color-ink-rgb), 0.82), rgba(var(--color-ink-rgb), 0.08) 60%),
-    url("../assets/covers/ouviram-do-ipiringa.png");
+    url("../assets/covers/ouviram-do-ipiranga.png");
   background-size: cover;
   background-position: center top;
 }
@@ -1157,7 +1157,9 @@ ul {
    aproxima o suficiente pra sumir com a moldura/borda original também. */
 .review-avatar-wrap {
   overflow: hidden;
-  background: var(--bg);
+  /* Combina com o fundo do card (não o fundo da página), pra fotos com
+     cantos transparentes se misturarem sem deixar um quadrado visível. */
+  background: var(--bg-alt);
 }
 
 .review-avatar {
