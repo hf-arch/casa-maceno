@@ -359,7 +359,7 @@ ul {
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(var(--color-ink-rgb), 0.62), rgba(var(--color-ink-rgb), 0.35) 55%, rgba(var(--color-ink-rgb), 0.58)),
-    url("../assets/mae_ensinando_filho.jpg");
+    url("../assets/site/mae_ensinando_filho.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -766,7 +766,7 @@ ul {
 .feature-card--dark1 {
   background:
     linear-gradient(0deg, rgba(var(--color-ink-rgb), 0.82), rgba(var(--color-ink-rgb), 0.08) 60%),
-    url("../assets/covers/9-de-janeiro-crop.png");
+    url("../assets/covers/9-de-janeiro.png");
   background-size: cover;
   background-position: center top;
 }
@@ -1637,28 +1637,28 @@ ul {
 .product-hero--apostilas {
   background-image:
     linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
-    url("../assets/backgrounds_section/apostilas.svg");
+    url("../assets/backgrounds-section/apostilas.svg");
   background-position: left center;
 }
 
 .product-hero--planners {
   background-image:
     linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
-    url("../assets/backgrounds_section/planners.svg");
+    url("../assets/backgrounds-section/planners.svg");
   background-position: left center;
 }
 
 .product-hero--cursos {
   background-image:
     linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
-    url("../assets/backgrounds_section/cursos.svg");
+    url("../assets/backgrounds-section/cursos.svg");
   background-position: left center;
 }
 
 .product-hero--historia {
   background-image:
     linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
-    url("../assets/backgrounds_section/historia-do-brasil.svg");
+    url("../assets/backgrounds-section/historia-do-brasil.svg");
   background-position: left center;
 }
 

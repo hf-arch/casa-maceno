@@ -214,7 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchIndex = [
     { title: "Sabedoria para crianças", category: "Apostilas", url: "apostilas/sabedoria-para-criancas.html" },
     { title: "Estudando Poesia, Latim e Caligrafia com Salmos", category: "Apostilas", url: "apostilas/poesia-latim-caligrafia.html" },
-    { title: "Bandeiras e Bandeirantes", category: "Apostilas", url: "apostilas/bandeiras-e-bandeirantes.html" },
     { title: "Segundo Livro de Leitura", category: "Apostilas", url: "apostilas/segundo-livro-de-leitura.html" },
     { title: "Todas as Apostilas", category: "Categoria", url: "apostilas/index.html" },
     { title: "Planner 2025", category: "Planners", url: "planners/2025.html" },
@@ -236,6 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "Ouviram do Ipiranga", category: "História do Brasil", url: "historia-do-brasil/ouviram-do-ipiranga.html" },
     { title: "15 de Novembro — Golpe da República", category: "História do Brasil", url: "historia-do-brasil/15-de-novembro.html" },
     { title: "Tiradentes — Herói ou vilão?", category: "História do Brasil", url: "historia-do-brasil/tiradentes.html" },
+    { title: "Bandeiras e Bandeirantes", category: "História do Brasil", url: "historia-do-brasil/bandeiras-e-bandeirantes.html" },
+    { title: "Leopoldina", category: "História do Brasil", url: "historia-do-brasil/leopoldina.html" },
     { title: "Amostras", category: "Categoria", url: "amostras/index.html" },
     { title: "Amostra: Sabedoria para crianças", category: "Amostra", url: "amostras/index.html" },
     { title: "Amostra: Estudando Poesia, Latim e Caligrafia com Salmos", category: "Amostra", url: "assets/amostras-pdfs/Amostra_Estudando_Poesia_com_Salmos.pdf" },
