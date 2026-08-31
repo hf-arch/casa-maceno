@@ -493,7 +493,7 @@ ul {
   margin-bottom: 8px;
 }
 
-.hero-copy h1 {
+.hero-slide-title {
   font-family: var(--font-heading);
   color: var(--color-cream);
   font-size: 1.5rem;
@@ -513,7 +513,7 @@ ul {
 }
 
 @media (min-width: 768px) {
-  .hero-copy h1 { font-size: 1.9rem; }
+  .hero-slide-title { font-size: 1.9rem; }
 }
 
 .hero-nav-btn {
@@ -1545,7 +1545,7 @@ ul {
   background-position: center;
 }
 
-.product-hero h1 {
+.product-hero-title {
   font-family: var(--font-heading);
   color: var(--color-cream);
   font-size: 1.5rem;
@@ -1566,7 +1566,7 @@ ul {
     min-height: 320px;
   }
 
-  .product-hero h1 {
+  .product-hero-title {
     font-size: 1.9rem;
   }
 }
