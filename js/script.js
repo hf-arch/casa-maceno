@@ -1,19 +1,6 @@
-/* ===========================================================
-   Casa Maceno — script.js
-   Funcionalidades:
-   1. Menu mobile (abrir/fechar)
-   2. Fechar menu ao clicar em um link
-   3. Destaque do link ativo no menu conforme o scroll (âncoras da home)
-   4. Alternar tema claro/escuro (com preferência salva)
-   5. Pesquisa (índice editável abaixo)
-   6. Carrossel do hero da home
-=========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------- 0. TEMA CLARO/ESCURO ---------- */
-  // O atributo data-theme já é aplicado no <head> (script inline) para evitar
-  // "flash" de tema errado. Aqui só cuidamos do clique no botão e do texto acessível.
   const themeToggle = document.getElementById("themeToggle");
   const THEME_KEY = "casaMacenoTheme";
 
@@ -38,8 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- 0b. HERO / CARROSSEL ---------- */
-  const heroTrack = document.getElementById("heroTrack");
+    const heroTrack = document.getElementById("heroTrack");
   const heroDots = document.getElementById("heroDots");
   const heroPrev = document.getElementById("heroPrev");
   const heroNext = document.getElementById("heroNext");
@@ -72,20 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.addEventListener("click", () => { heroGoTo(i); heroRestartAutoplay(); });
     });
 
-    // Arrastar com o dedo (ou mouse) para qualquer lado: a faixa acompanha o
-    // gesto e, ao soltar, avança/volta se o arraste passou de ~12% da largura,
-    // ou volta pro lugar. Usa Pointer Events + setPointerCapture em vez de
-    // touch puro: assim o navegador garante que os eventos de mover/soltar
-    // continuam chegando no carrossel até o fim do gesto, mesmo se o dedo sair
-    // da área dele no meio do arraste — sem isso, um arraste que escapa do
-    // elemento podia "perder" o final do gesto e deixar o carrossel travado,
-    // sem responder a cliques/arrastos seguintes.
-    //
-    // O captured só é ativado depois que o gesto realmente vira um arraste
-    // (passa de ~6px de movimento) — chamar setPointerCapture direto no
-    // pointerdown faz o navegador redirecionar até o "click" pro heroTrack
-    // em vez do elemento tocado, e os botões "Ver apostilas/Ver Planners/..."
-    // dentro do carrossel paravam de funcionar mesmo num toque simples.
     let dragStartX = 0;
     let dragCurrentX = 0;
     let isDragging = false;
@@ -127,8 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
       isDragging = false;
       activePointerId = null;
 
-      // Não houve arraste de verdade (só um toque/clique) — não mexe no
-      // carrossel e deixa o navegador tratar o clique normalmente.
       if (!hasCaptured) {
         heroRestartAutoplay();
         return;
@@ -156,8 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* ---------- 1. MENU MOBILE ---------- */
-  const navToggle = document.getElementById("navToggle");
+    const navToggle = document.getElementById("navToggle");
   const mainNav = document.getElementById("mainNav");
 
   if (navToggle && mainNav) {
@@ -166,8 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
-    /* ---------- 2. Fechar menu ao clicar em um link ---------- */
-    // Só em links reais (<a>) — o botão "Conteúdos" não deve fechar o menu inteiro.
     mainNav.querySelectorAll("a.nav-link").forEach((link) => {
       link.addEventListener("click", () => {
         mainNav.classList.remove("is-open");
@@ -176,8 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- 2b. DROPDOWN "CONTEÚDOS" ---------- */
-  document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
+    document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
     const wrapper = toggle.closest(".has-dropdown");
     if (!wrapper) return;
 
@@ -207,10 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- 3. PESQUISA ---------- */
-  // Índice de tudo que pode ser encontrado pela busca. "url" é sempre relativo
-  // à raiz do site — o prefixo certo (nada, ou "../") é calculado automaticamente
-  // a partir do src de script.js na própria página, então funciona em qualquer pasta.
   const searchIndex = [
     { title: "Sabedoria para crianças", category: "Apostilas", url: "apostilas/sabedoria-para-criancas.html" },
     { title: "Estudando Poesia, Latim e Caligrafia com Salmos", category: "Apostilas", url: "apostilas/poesia-latim-caligrafia.html" },
@@ -261,8 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .toLowerCase();
   }
 
-  // Descobre o prefixo relativo certo ("" na raiz, "../" dentro de uma pasta)
-  // reaproveitando o src do próprio script.js, que já está correto em cada página.
   function getBasePrefix() {
     const scriptEl = document.querySelector('script[src$="js/script.js"]');
     if (!scriptEl) return "";
@@ -297,7 +257,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const a = document.createElement("a");
         a.className = "search-result";
         a.href = basePrefix + item.url;
-        // PDFs de amostra abrem em nova aba, igual aos cards de amostra no resto do site
         if (item.url.endsWith(".pdf")) {
           a.target = "_blank";
           a.rel = "noopener noreferrer";
@@ -342,8 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- 3b. LIGHTBOX DE DEPOIMENTOS (Avaliações) ---------- */
-  const reviewCards = document.querySelectorAll(".review-card");
+    const reviewCards = document.querySelectorAll(".review-card");
   const reviewLightbox = document.getElementById("reviewLightbox");
   const reviewLightboxImg = document.getElementById("reviewLightboxImg");
   const reviewLightboxName = document.getElementById("reviewLightboxName");
@@ -380,9 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- 3c. CARROSSEL DE DEPOIMENTOS (só ativo no celular — no
-     desktop/tablet a seção continua em mural Masonry, sem slide) ---------- */
-  const reviewsViewport = document.getElementById("reviewsViewport");
+    const reviewsViewport = document.getElementById("reviewsViewport");
   const reviewsTrack = document.getElementById("reviewsMasonry");
   const reviewsDotsWrap = document.getElementById("reviewsDots");
   const reviewsPrevBtn = document.getElementById("reviewsPrev");
@@ -416,10 +372,6 @@ document.addEventListener("DOMContentLoaded", () => {
     reviewsNextBtn.addEventListener("click", () => reviewsGoTo(reviewIndex + 1));
     reviewsMobileQuery.addEventListener("change", reviewsRender);
 
-    // Swipe/drag — mesma lógica (e mesma correção de clique x arraste) do
-    // carrossel principal do hero: só captura o ponteiro depois de um
-    // deslocamento mínimo, senão um toque simples vira "arraste" e o clique
-    // no card (que abre o lightbox) para de funcionar.
     let dragStartX = 0;
     let dragCurrentX = 0;
     let isDragging = false;
@@ -473,10 +425,6 @@ document.addEventListener("DOMContentLoaded", () => {
     reviewsRender();
   }
 
-  /* ---------- 4. LINK ATIVO NO MENU CONFORME SCROLL ---------- */
-  // Só mexe em links que são âncoras da própria página (href começando com "#").
-  // Links para outras páginas (ex: "apostilas.html") já vêm com a classe "is-active"
-  // marcada direto no HTML quando é a página atual, e não devem ser tocados aqui.
   const sections = document.querySelectorAll("main section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
   const anchorLinks = Array.from(navLinks).filter((link) => (link.getAttribute("href") || "").startsWith("#"));

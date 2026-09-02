@@ -26,7 +26,6 @@
 
     <link rel="icon" type="image/png" href="assets/site/logo_azul_oficial.png" />
 
-    <!-- Aplica o tema salvo (claro/escuro) antes da 1ª pintura da página, evitando "flash" -->
     <script>
       (function () {
         var saved = localStorage.getItem("casaMacenoTheme");
@@ -40,7 +39,6 @@
       })();
     </script>
 
-    <!-- Fontes (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,7 +64,6 @@
     </script>
 </head>
   <body>
-    <!-- =============== HEADER =============== -->
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html#topo" class="logo">
@@ -192,7 +189,6 @@
     </header>
 
     <main id="topo">
-      <!-- =============== HERO / CARROSSEL =============== -->
       <section
         class="hero-carousel"
         aria-label="Destaques da Casa Maceno"
@@ -232,7 +228,6 @@
         </button>
 
         <div class="hero-track" id="heroTrack">
-          <!-- Slide 1: Apostilas -->
           <div class="hero-slide" aria-hidden="false">
             <div class="hero-cover">
               <img
@@ -263,7 +258,6 @@
             </div>
           </div>
 
-          <!-- Slide 2: Planners -->
           <div class="hero-slide" aria-hidden="true">
             <div class="hero-cover">
               <img src="assets/covers/planner-2026.png" alt="Planner 2026" />
@@ -286,7 +280,6 @@
             </div>
           </div>
 
-          <!-- Slide 3: Cursos -->
           <div class="hero-slide" aria-hidden="true">
             <div class="hero-cover">
               <img
@@ -314,7 +307,6 @@
             </div>
           </div>
 
-          <!-- Slide 4: História do Brasil para Pequenos -->
           <div class="hero-slide" aria-hidden="true">
             <div class="hero-cover">
               <img
@@ -357,7 +349,6 @@
         </div>
       </section>
 
-      <!-- =============== INTRO =============== -->
       <section class="intro container" id="sobre">
         <p>
           Somos uma família cristã que cria materiais pelo currículo clássico
@@ -366,7 +357,6 @@
         </p>
       </section>
 
-      <!-- =============== APOSTILAS (prévia) =============== -->
       <section
         class="section"
         id="apostilas-preview"
@@ -427,7 +417,6 @@
         </div>
       </section>
 
-      <!-- =============== PLANNERS =============== -->
       <section class="section" id="planners" aria-labelledby="planners-title">
         <div class="container">
           <h2 id="planners-title" class="section-title">Planners</h2>
@@ -470,7 +459,6 @@
         </div>
       </section>
 
-      <!-- =============== CURSOS =============== -->
       <section class="section" aria-labelledby="cursos-title">
         <div class="container">
           <h2 id="cursos-title" class="section-title">Cursos</h2>
@@ -527,7 +515,6 @@
         </div>
       </section>
 
-      <!-- =============== HISTÓRIA DO BRASIL PARA PEQUENOS =============== -->
       <section class="section" aria-labelledby="historia-title">
         <div class="container">
           <h2 id="historia-title" class="section-title">
@@ -586,14 +573,6 @@
         </div>
       </section>
 
-      <!-- =============== AMOSTRAS =============== -->
-      <!-- Cada card abre, em nova aba, o PDF de amostra do material (algumas
-           páginas reais da apostila/planner/curso). Para trocar o link
-           provisório (href="#") pelo PDF de verdade:
-           1. Salve o arquivo em assets/amostras-pdfs/ (crie a pasta se ainda não existir).
-           2. Troque o href="#" por assets/amostras-pdfs/nome-do-arquivo.pdf.
-           Mais amostras (inclusive de História do Brasil) ficam na página
-           "Ver todas as amostras" — duplique um card lá seguindo o mesmo padrão. -->
       <section class="section amostras" aria-labelledby="amostras-title">
         <div class="container">
           <h2 id="amostras-title" class="section-title">Amostras</h2>
@@ -704,33 +683,6 @@
         </div>
       </section>
 
-      <!-- =============== AVALIAÇÕES =============== -->
-      <!-- Mural de depoimentos reais (prints inteiros do WhatsApp/Instagram,
-           nunca cortados fisicamente — só escondemos visualmente o
-           cabeçalho/rodapé do app via --crop-top/--crop-bottom).
-
-           Para adicionar um novo depoimento:
-           1. Salve o print (inteiro, sem cortar) em assets/avaliacoes/.
-           2. Duplique um <button class="review-card">...</button> abaixo.
-           3. Preencha data-name / data-origin (usados no lightbox) e o
-              nome/origem visíveis no cabeçalho do card.
-           4. Em .review-shot-frame, ajuste:
-              --nat-w / --nat-h = largura/altura reais do arquivo (em px).
-              --crop-top = quantos px do topo esconder (cabeçalho do app).
-              --crop-bottom = quantos px da base esconder (campo de digitar).
-              Se o print já vier só com a conversa (ex: resposta de story do
-              Instagram), deixe --crop-top e --crop-bottom em 0.
-
-           Avatar (foto da pessoa, opcional):
-           Por padrão cada card mostra um círculo placeholder
-           (<span class="review-avatar-placeholder">). Quando tiver a foto
-           real, salve em assets/avaliacoes/avatars/nome-da-pessoa.jpg e
-           troque esse <span> por:
-           <span class="review-avatar-wrap"><img class="review-avatar" src="assets/avaliacoes/avatars/nome-da-pessoa.jpg" alt="Nome da pessoa"></span>
-           Se a foto já vier com moldura/borda "assada" nela (comum em
-           foto de perfil exportada do WhatsApp/Instagram), adicione
-           style="--avatar-zoom: 1.4" (ajuste o número) na <img> pra
-           aproximar o suficiente e esconder essa borda. -->
       <section
         class="section reviews"
         id="avaliacoes"
@@ -740,9 +692,6 @@
           <h2 id="avaliacoes-title" class="section-title">Avaliações</h2>
           <p class="section-subtitle">Mensagens reais de famílias que já usam os materiais — direto do WhatsApp e do Instagram.</p>
 
-          <!-- Indicadores do carrossel — só aparecem no celular (ver
-               media query no CSS), onde os depoimentos viram um slide por
-               vez em vez do mural Masonry. Preenchidos via JS. -->
           <div class="reviews-dots" id="reviewsDots" aria-hidden="true"></div>
 
           <div class="reviews-viewport" id="reviewsViewport">
@@ -958,7 +907,6 @@
           </div>
           </div>
 
-          <!-- Setas — mesma regra: só visíveis no celular -->
           <div class="reviews-arrows" id="reviewsArrows" aria-hidden="true">
             <button type="button" class="reviews-arrow reviews-prev" id="reviewsPrev" aria-label="Depoimento anterior">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
@@ -970,7 +918,6 @@
         </div>
       </section>
 
-      <!-- Lightbox: abre o print original completo, sem nenhum recorte -->
       <div class="modal review-lightbox" id="reviewLightbox" aria-hidden="true">
         <div class="modal-overlay" data-close-review></div>
         <div class="modal-dialog review-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Print completo do depoimento">
@@ -983,7 +930,6 @@
       </div>
     </main>
 
-    <!-- =============== FOOTER =============== -->
     <footer class="site-footer">
       <div class="footer-banner" aria-hidden="true">
         <img
@@ -1004,7 +950,6 @@
           </div>
 
           <div class="footer-contact">
-            <!-- Troque pelo e-mail real de contato da loja -->
             <a href="mailto:sas@casamaceno.com.br" class="footer-email">
               <svg
                 viewBox="0 0 24 24"
@@ -1082,7 +1027,6 @@
       </div>
     </footer>
 
-    <!-- =============== MODAL DE PESQUISA =============== -->
     <div class="modal search-modal" id="searchModal" aria-hidden="true">
       <div class="modal-overlay" data-close-search></div>
       <div

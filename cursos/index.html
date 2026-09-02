@@ -23,7 +23,6 @@
 
 <link rel="icon" type="image/png" href="../assets/site/logo_azul_oficial.png" />
 
-<!-- Aplica o tema salvo (claro/escuro) antes da 1ª pintura da página, evitando "flash" -->
 <script>
   (function () {
     var saved = localStorage.getItem("casaMacenoTheme");
@@ -32,7 +31,6 @@
   })();
 </script>
 
-<!-- Fontes (Google Fonts) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -41,7 +39,6 @@
 </head>
 <body>
 
-<!-- =============== HEADER =============== -->
 <header class="site-header">
   <div class="container header-inner">
     <a href="../index.html#topo" class="logo">
@@ -89,7 +86,6 @@
 
 <main id="topo">
 
-  <!-- =============== TÍTULO DA PÁGINA =============== -->
   <section class="page-hero">
     <div class="container">
       <p class="breadcrumb"><a href="../index.html">Início</a> <span aria-hidden="true">/</span> Cursos</p>
@@ -101,7 +97,6 @@
     </div>
   </section>
 
-  <!-- =============== LISTA DE CURSOS =============== -->
   <section class="section">
     <div class="container">
       <div class="grid grid-3">
@@ -124,12 +119,6 @@
           <p class="card-desc">Curso que une fábulas clássicas ao estudo da poesia, estimulando leitura e imaginação.</p>
         </a>
 
-        <!--
-          Para adicionar um novo curso:
-          1. Duplique um bloco <a class="card card--product" href="....html">...</a> acima.
-          2. Troque o título, a descrição, o href e o valor de data-product (um identificador único, sem espaços).
-        -->
-
       </div>
 
       <div class="section-cta">
@@ -140,7 +129,6 @@
 
 </main>
 
-<!-- =============== FOOTER =============== -->
 <footer class="site-footer">
   <div class="footer-banner" aria-hidden="true">
     <img src="../assets/site/lib_footer.jpeg" alt="Material Casa Maceno sendo retirado da estante">
@@ -154,7 +142,6 @@
       </div>
 
             <div class="footer-contact">
-        <!-- Troque pelo e-mail real de contato da loja -->
         <a href="mailto:sas@casamaceno.com.br" class="footer-email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
           sas@casamaceno.com.br
@@ -176,7 +163,6 @@
   </div>
 </footer>
 
-<!-- =============== MODAL DE PESQUISA =============== -->
 <div class="modal search-modal" id="searchModal" aria-hidden="true">
   <div class="modal-overlay" data-close-search></div>
   <div class="modal-dialog search-dialog" role="dialog" aria-modal="true" aria-label="Pesquisar no site">

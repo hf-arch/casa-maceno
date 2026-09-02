@@ -1,12 +1,3 @@
-/* ===========================================================
-   Casa Maceno — estilos gerais
-   Paleta "Sala de Aula em Casa" (aprovada em protótipo):
-   - Terracota: header e footer, sempre — cor de marca, fixa nos dois temas
-   - Vermelho-tijolo: botões, links, ações
-   - Azul empoeirado: ícones e destaques secundários
-   - Mostarda: destaques suaves, variação de cor em cards
-   - Creme: fundo da página, no lugar do branco
-=========================================================== */
 
 :root {
   --color-ink: #2a1b10;
@@ -27,8 +18,7 @@
   --radius: 16px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* ---- Tema claro (padrão) ---- */
-  --bg: #f7f1e3;
+    --bg: #f7f1e3;
   --bg-alt: #fffbf2;
   --bg-alt-border: #e8d9be;
   --text: #4a3524;
@@ -36,23 +26,17 @@
   --modal-bg: #fffbf2;
   --shadow: rgba(74, 53, 36, 0.16);
 
-  /* Header/footer: sempre a cor da marca (terracota), fixa nos dois temas */
-  --header-bg: var(--color-brand);
+    --header-bg: var(--color-brand);
   --header-text: var(--color-cream);
   --header-text-muted: rgba(251, 243, 232, 0.78);
   --header-text-dim: rgba(251, 243, 232, 0.55);
   --header-border: rgba(251, 243, 232, 0.22);
   --header-hover-bg: rgba(251, 243, 232, 0.14);
-  /* Cor de destaque só dentro do header/footer (contrasta melhor com o
-     terracota do que o vermelho-tijolo, que é próximo demais em matiz) */
-  --header-highlight: var(--color-tertiary);
+    --header-highlight: var(--color-tertiary);
 
-  /* Informa ao navegador qual esquema de cor a página está usando, para ele
-     não tentar "forçar" um modo escuro por cima do nosso toggle manual */
-  color-scheme: light;
+    color-scheme: light;
 }
 
-/* ---- Tema escuro ---- */
 [data-theme="dark"] {
   --bg: #201409;
   --bg-alt: #2d1d10;
@@ -68,8 +52,7 @@
   --color-accent-dark: #ee8862;
   --color-tertiary: #e4b65b;
 
-  /* Header/footer continuam terracota — não são redefinidos aqui de propósito */
-
+  
   color-scheme: dark;
 }
 
@@ -85,10 +68,7 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--text);
-  /* Cor sólida + uma textura de papel bem sutil por baixo (ruído gerado via
-     SVG, sem imagem externa), misturadas direto no fundo do body — assim a
-     textura fica atrás de todo o conteúdo, sem depender de z-index. */
-  background-color: var(--bg);
+    background-color: var(--bg);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
   line-height: 1.5;
   transition: background-color 0.25s ease, color 0.25s ease;
@@ -132,7 +112,6 @@ ul {
   padding: 0 20px;
 }
 
-/* ===================== HEADER ===================== */
 .site-header {
   background: var(--header-bg);
   position: sticky;
@@ -165,19 +144,6 @@ ul {
   height: 42px;
 }
 
-/* Header/footer agora são sempre terracota (não trocam mais por tema), então
-   a logo usa sempre a versão clara — o traço preto invertido para ficar
-   creme e visível sobre o terracota, nos dois temas. */
-.logo-img--light {
-  display: none;
-}
-
-.logo-img--dark {
-  display: block;
-  filter: invert(1);
-}
-
-/* Teste: variante da logo nova (emblema colorido), sem invert de cor */
 .logo-img--color {
   display: block;
   width: 52px;
@@ -250,7 +216,6 @@ ul {
   color: var(--header-highlight);
 }
 
-/* ---- Dropdown "Conteúdos" ---- */
 .has-dropdown {
   position: relative;
 }
@@ -353,7 +318,6 @@ ul {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ===================== HERO / CARROSSEL ===================== */
 .hero-carousel {
   position: relative;
   overflow: hidden;
@@ -367,12 +331,8 @@ ul {
 .hero-track {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-  /* Deixa o navegador tratar rolagem vertical normalmente e reserva o gesto
-     horizontal para o JS arrastar o carrossel, sem os dois brigarem no mobile */
-  touch-action: pan-y;
-  /* Evita selecionar texto ou iniciar o "arrastar imagem" nativo do navegador
-     no meio de um drag do carrossel (o que cancelaria o gesto de arrastar) */
-  user-select: none;
+    touch-action: pan-y;
+    user-select: none;
   -webkit-user-select: none;
 }
 
@@ -425,17 +385,6 @@ ul {
   display: block;
 }
 
-/* Variante placeholder, usada enquanto não há foto real do produto */
-.hero-cover--maroon,
-.hero-cover--teal,
-.hero-cover--dark {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-}
-
 .hero-cover span {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -448,10 +397,6 @@ ul {
   opacity: 0.9;
   margin-top: 6px;
 }
-
-.hero-cover--maroon { background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark)); }
-.hero-cover--teal { background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary)); }
-.hero-cover--dark { background: linear-gradient(160deg, #3a2318, var(--color-ink) 75%); }
 
 .age-badge {
   position: absolute;
@@ -547,10 +492,7 @@ ul {
 .hero-next { right: 16px; }
 
 @media (max-width: 859px) {
-  /* No mobile as setas ficam menores, mais coladas na borda — sem capas ao
-     lado pra disputar espaço, mas o texto do slide ganha um respiro nas
-     laterais pra não ficar por baixo delas */
-  .hero-nav-btn {
+    .hero-nav-btn {
     width: 32px;
     height: 32px;
   }
@@ -593,7 +535,6 @@ ul {
   border-radius: 5px;
 }
 
-/* ===================== CABEÇALHO DE PÁGINA INTERNA (ex: Apostilas) ===================== */
 .page-hero {
   background: var(--bg-alt);
   padding: 28px 0 34px;
@@ -631,7 +572,6 @@ ul {
   font-size: 0.95rem;
 }
 
-/* ===================== INTRO ===================== */
 .intro {
   padding: 32px 20px 12px;
   text-align: center;
@@ -644,7 +584,6 @@ ul {
   font-size: 0.98rem;
 }
 
-/* ===================== SEÇÕES / TÍTULOS ===================== */
 .section {
   padding: 40px 0;
 }
@@ -687,14 +626,9 @@ ul {
   font-size: 0.9rem;
 }
 
-/* ===================== GRIDS ===================== */
 .grid {
   display: grid;
   gap: 16px;
-}
-
-.grid-2 {
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .grid-3 {
@@ -753,7 +687,6 @@ ul {
   margin-top: 28px;
 }
 
-/* ===================== CARDS DE CATEGORIA (Apostilas, Planners, etc.) ===================== */
 .card {
   position: relative;
   background: var(--bg-alt);
@@ -774,8 +707,6 @@ ul {
   border-color: var(--color-accent);
 }
 
-/* Fita washi + leve rotação — só nos cards de prévia da home (não nas
-   páginas de listagem completas, onde teria item demais pra ficar bonito) */
 .card:not(.card--product) {
   overflow: visible;
 }
@@ -854,8 +785,6 @@ ul {
   height: 100%;
 }
 
-/* Miniatura de capa real, usada no lugar do ícone genérico quando o
-   produto já tem uma foto/arte de capa disponível */
 .card-cover {
   display: block;
   width: 100%;
@@ -877,13 +806,6 @@ ul {
   transform: scale(1.05);
 }
 
-/* Capa "solta", usada nas fotos que já são um mockup limpo (livro/planner
-   isolado em fundo claro) — mostra a arte inteira (object-fit: contain,
-   proporção retrato 3/4, perto da proporção real dos livros) em vez de
-   cortar com object-fit: cover. Sem moldura nem tapete por trás: só a
-   própria capa, grande, direto sobre o fundo do card, com uma sombra
-   suave por baixo pra dar profundidade — visual de produto de e-commerce,
-   não de quadro emoldurado. */
 .card-cover--framed {
   aspect-ratio: 3 / 4;
   display: flex;
@@ -911,7 +833,6 @@ ul {
   line-height: 1.35;
 }
 
-/* ===================== AMOSTRAS ===================== */
 .sample-card {
   display: flex;
   justify-content: center;
@@ -947,8 +868,7 @@ ul {
 }
 
 .sample-mock::before {
-  /* espiral do caderno */
-  content: "";
+    content: "";
   position: absolute;
   left: 10px;
   top: 8%;
@@ -959,12 +879,6 @@ ul {
   background-repeat: repeat-y;
 }
 
-.sample-mock--teal { background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary)); }
-.sample-mock--maroon { background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark) 75%); }
-.sample-mock--dark { background: linear-gradient(160deg, #3a2318, var(--color-ink) 75%); }
-
-/* Variante com a capa real do material, usada quando já existe a amostra
-   em PDF e a arte de capa correspondente */
 .sample-mock--photo {
   background-size: cover;
   background-position: center;
@@ -986,13 +900,11 @@ ul {
 
 .sample-mock--photo .sample-mock-badge,
 .sample-mock--photo .sample-mock-label,
-.sample-mock--photo .sample-mock-sub,
-.sample-mock--photo .sample-mock-tab {
+.sample-mock--photo .sample-mock-sub {
   position: relative;
   z-index: 1;
 }
 
-/* Selo indicando que o clique abre um PDF em nova aba */
 .sample-mock-badge {
   position: absolute;
   top: 10px;
@@ -1033,17 +945,6 @@ ul {
   margin-top: -12px;
 }
 
-.sample-mock-tab {
-  width: 60%;
-  height: 26px;
-  background: var(--color-cream);
-  border-radius: 999px;
-}
-
-/* ===================== AVALIAÇÕES (mural de depoimentos reais) ===================== */
-/* Layout Masonry via CSS columns — cada print mantém sua altura original,
-   sem forçar cards iguais. 3 colunas no desktop, 2 no tablet, 1 no celular
-   (breakpoints logo abaixo). */
 .reviews-masonry {
   column-count: 3;
   column-gap: 20px;
@@ -1088,16 +989,9 @@ ul {
   flex-shrink: 0;
 }
 
-/* Molde que recorta o avatar em círculo. Ficou separado da <img> porque
-   algumas fotos (ex: perfil do WhatsApp) já vêm com uma moldura circular
-   "assada" na própria imagem, com cantos escuros sobrando ao redor — o
-   overflow:hidden aqui esconde esses cantos, e o --avatar-zoom (na img)
-   aproxima o suficiente pra sumir com a moldura/borda original também. */
 .review-avatar-wrap {
   overflow: hidden;
-  /* Combina com o fundo do card (não o fundo da página), pra fotos com
-     cantos transparentes se misturarem sem deixar um quadrado visível. */
-  background: var(--bg-alt);
+    background: var(--bg-alt);
 }
 
 .review-avatar {
@@ -1108,8 +1002,6 @@ ul {
   transform: scale(var(--avatar-zoom, 1));
 }
 
-/* Espaço reservado pro avatar real de cada depoente — ver comentário no
-   HTML de como trocar pela foto quando ela existir. */
 .review-avatar-placeholder {
   display: flex;
   align-items: center;
@@ -1148,9 +1040,6 @@ ul {
   letter-spacing: 0.05em;
 }
 
-/* Janela de recorte: mostra só a fatia relevante do print (sem editar o
-   arquivo original). --crop-top/--crop-bottom em pixels "naturais" da
-   imagem, configurados por depoimento — ver comentário no HTML. */
 .review-shot-frame {
   display: block;
   position: relative;
@@ -1168,10 +1057,7 @@ ul {
   width: 100%;
   height: auto;
   display: block;
-  /* % de transform é relativo à altura da própria imagem (não da moldura),
-     então continua certo mesmo se a moldura for limitada por max-height
-     no celular (ver .reviews-masonry mobile mais abaixo) */
-  transform: translateY(calc(-100% * var(--crop-top) / var(--nat-h)));
+    transform: translateY(calc(-100% * var(--crop-top) / var(--nat-h)));
 }
 
 @media (max-width: 980px) {
@@ -1180,8 +1066,6 @@ ul {
   }
 }
 
-/* ---- Indicadores e setas do carrossel mobile (escondidos no desktop/tablet,
-   onde a seção continua em mural Masonry) ---- */
 .reviews-dots,
 .reviews-arrows {
   display: none;
@@ -1247,10 +1131,7 @@ ul {
     margin-bottom: 0;
   }
 
-  /* Teto de altura pro print, pra um print vertical gigante não esticar
-     o card — o recorte de topo continua correto (ver comentário acima
-     em .review-shot-frame img). */
-  .review-shot-frame {
+    .review-shot-frame {
     max-height: 46vh;
   }
 
@@ -1275,7 +1156,6 @@ ul {
   }
 }
 
-/* ---- Lightbox: print completo, sem nenhum recorte ---- */
 .review-lightbox-dialog {
   max-width: 480px;
   padding: 16px;
@@ -1299,7 +1179,6 @@ ul {
   color: var(--text);
 }
 
-/* ===================== FOOTER ===================== */
 .site-footer {
   margin-top: 20px;
 }
@@ -1400,7 +1279,6 @@ ul {
   height: 100%;
 }
 
-/* ===================== MODAL (base, usado pela pesquisa) ===================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -1453,7 +1331,6 @@ ul {
   color: var(--text-muted);
 }
 
-/* ===================== MODAL DE PESQUISA ===================== */
 .search-dialog {
   max-width: 560px;
   padding-top: 58px;
@@ -1532,7 +1409,6 @@ ul {
   white-space: nowrap;
 }
 
-/* ===================== PÁGINA DE PRODUTO (ex: apostila-*.html) ===================== */
 .product-hero {
   display: flex;
   align-items: flex-end;
@@ -1571,7 +1447,6 @@ ul {
   }
 }
 
-/* Fotos de fundo por categoria */
 .product-hero--apostilas {
   background-image:
     linear-gradient(0deg, rgba(var(--color-ink-rgb),0.78), rgba(var(--color-ink-rgb),0.3) 65%, rgba(var(--color-ink-rgb),0.1)),
@@ -1667,7 +1542,6 @@ ul {
   box-shadow: 0 10px 24px var(--shadow);
 }
 
-/* Variante com foto real do produto, em vez do bloco de cor + texto */
 .product-cover--photo {
   padding: 0;
   aspect-ratio: 4 / 5;
@@ -1680,10 +1554,6 @@ ul {
   display: block;
 }
 
-/* Usado quando a foto do produto é uma composição larga (ex: dois livros
-   lado a lado) — a proporção 4/5 padrão, pensada pra capa única em pé,
-   dava um zoom pesado e cortava o conjunto. Aqui a proporção acompanha a
-   imagem e object-fit: contain garante que nada seja cortado. */
 .product-cover--wide {
   aspect-ratio: 6 / 5;
   background: var(--bg-alt);
@@ -1704,24 +1574,6 @@ ul {
 .product-cover span {
   font-family: var(--font-heading);
   font-weight: 700;
-}
-
-.product-cover-sub {
-  font-size: 0.78rem;
-  font-weight: 500 !important;
-  opacity: 0.9;
-}
-
-.product-cover--maroon {
-  background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark) 75%);
-}
-
-.product-cover--teal {
-  background: linear-gradient(160deg, var(--color-secondary-soft), var(--color-secondary) 75%);
-}
-
-.product-cover--dark {
-  background: linear-gradient(160deg, #3a2318, var(--color-ink) 70%);
 }
 
 .product-block {
@@ -1765,9 +1617,6 @@ ul {
   background: var(--color-accent);
 }
 
-/* Módulos de curso: usado dentro de .product-block em cursos com estrutura
-   modular (ex: Pais Educadores) — cada módulo é um título + descrição
-   e/ou lista de aulas. */
 .product-module {
   margin-bottom: 20px;
 }
@@ -1794,7 +1643,6 @@ ul {
   margin-bottom: 0;
 }
 
-/* ===================== SOBRE NÓS ===================== */
 .about-story {
   display: grid;
   gap: 24px;
@@ -1861,7 +1709,6 @@ ul {
   line-height: 1.65;
 }
 
-/* ===================== RESPONSIVO / MENU MOBILE ===================== */
 @media (max-width: 1023px) {
   .nav-toggle {
     display: flex;
@@ -1899,8 +1746,7 @@ ul {
     padding: 12px 0;
   }
 
-  /* No menu mobile o dropdown fica sempre expandido, sem interação extra */
-  .has-dropdown {
+    .has-dropdown {
     position: static;
   }
 
